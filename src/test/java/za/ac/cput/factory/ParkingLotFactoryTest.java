@@ -19,7 +19,7 @@ class ParkingLotFactoryTest {
         ParkingLot parkingLot = ParkingLotFactory.build("543345","A1","2");
         ParkingLot parkingLot1 = ParkingLotFactory.build("65457","B1","1");
         assertNotSame(parkingLot,parkingLot1);
-        //System.out.println(parkingLot.toString());
+
     }
 
 }

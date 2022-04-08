@@ -1,3 +1,9 @@
+/**
+ * CampusFactoryTest.java
+ * Test class to test CampusFactory.java class
+ * Author: Sonwabile Gxoyiya (219267189)
+ * Date: 6 April 2022
+ */
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
@@ -9,7 +15,7 @@ class CampusFactoryTest {
 
     @Test
     public void testCreateCampus(){
-        Campus campus = CampusFactory.build("44332","District 6 Campus","Cape Town");
+        Campus campus = CampusFactory.build("District 6 Campus","Cape Town");
         assertNotNull(campus);
         System.out.println(campus.toString());
     }

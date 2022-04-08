@@ -8,9 +8,11 @@ package za.ac.cput.factory;
 
 import za.ac.cput.entity.ParkingLot;
 import za.ac.cput.entity.ParkingSpace;
+import za.ac.cput.helper.GenerateID;
 
 public class ParkingSpaceFactory {
-    public static ParkingSpace build(String parkingSpaceID, String parkingSpaceNumber, String parkingLotID){
+    public static ParkingSpace build( String parkingSpaceNumber, String parkingLotID){
+        String parkingSpaceID = GenerateID.generateUUID();
         return new ParkingSpace.Builder()
                 .setParkingSpaceID(parkingSpaceID)
                 .setParkingSpaceNumber(parkingSpaceNumber)

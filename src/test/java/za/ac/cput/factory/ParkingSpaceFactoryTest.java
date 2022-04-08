@@ -1,3 +1,9 @@
+/**
+ * ParkingSpaceFactoryTest.java
+ * Test class to test ParkingSpaceFactory.java class
+ * Author: Sonwabile Gxoyiya (219267189)
+ * Date: 6 April 2022
+ */
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
@@ -10,8 +16,8 @@ class ParkingSpaceFactoryTest {
 
     @Test
     public void testCreateParkingSpace(){
-        ParkingLot parkingLot = ParkingLotFactory.build("677755","District6Campus","1");
-        ParkingSpace parkingSpace = ParkingSpaceFactory.build("654334","4",parkingLot.getParkingLotID());
+        ParkingLot parkingLot = ParkingLotFactory.build("District6CampusLot","1");
+        ParkingSpace parkingSpace = ParkingSpaceFactory.build("4",parkingLot.getParkingLotID());
         assertNotNull(parkingSpace);
         System.out.println(parkingSpace.toString());
     }

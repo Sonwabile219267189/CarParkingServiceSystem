@@ -34,7 +34,7 @@ public class ParkingSpace {
         return "ParkingSpace{" +
                 "parkingSpaceID='" + parkingSpaceID + '\'' +
                 ", parkingSpaceNumber='" + parkingSpaceNumber + '\'' +
-                ", parkingLot=" + parkingLotID +
+                ", parkingLotID=" + parkingLotID +
                 '}';
     }
 

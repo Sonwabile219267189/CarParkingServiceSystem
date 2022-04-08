@@ -11,7 +11,7 @@ class ParkingSpaceFactoryTest {
     @Test
     public void testCreateParkingSpace(){
         ParkingLot parkingLot = ParkingLotFactory.build("677755","District6Campus","1");
-        ParkingSpace parkingSpace = ParkingSpaceFactory.build("654334","4",parkingLot);
+        ParkingSpace parkingSpace = ParkingSpaceFactory.build("654334","4",parkingLot.getParkingLotID());
         assertNotNull(parkingSpace);
         System.out.println(parkingSpace.toString());
     }

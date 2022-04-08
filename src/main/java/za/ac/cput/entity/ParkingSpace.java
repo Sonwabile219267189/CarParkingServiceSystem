@@ -9,7 +9,7 @@ package za.ac.cput.entity;
 public class ParkingSpace {
     private String parkingSpaceID;
     private String parkingSpaceNumber;
-    private ParkingLot parkingLot;
+    private String parkingLotID;
 
     public String getParkingSpaceID(){
         return parkingSpaceID;
@@ -19,14 +19,14 @@ public class ParkingSpace {
         return parkingSpaceNumber;
     }
 
-    public ParkingLot getParkingLot(){
-        return parkingLot;
+    public String getParkingLotID(){
+        return parkingLotID;
     }
 
     private ParkingSpace(Builder builder){
         this.parkingSpaceID = builder.parkingSpaceID;
         this.parkingSpaceNumber = builder.parkingSpaceNumber;
-        this.parkingLot = builder.parkingLot;
+        this.parkingLotID = builder.parkingLotID;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ParkingSpace {
         return "ParkingSpace{" +
                 "parkingSpaceID='" + parkingSpaceID + '\'' +
                 ", parkingSpaceNumber='" + parkingSpaceNumber + '\'' +
-                ", parkingLot=" + parkingLot +
+                ", parkingLot=" + parkingLotID +
                 '}';
     }
 
@@ -43,7 +43,7 @@ public class ParkingSpace {
     public static class Builder{
         private String parkingSpaceID;
         private String parkingSpaceNumber;
-        private ParkingLot parkingLot;
+        private String parkingLotID;
 
         public Builder setParkingSpaceID(String parkingSpaceID){
             this.parkingSpaceID = parkingSpaceID;
@@ -55,15 +55,15 @@ public class ParkingSpace {
             return this;
         }
 
-        public Builder setParkingLot(ParkingLot parkingLot){
-            this.parkingLot = parkingLot;
+        public Builder setParkingLotID(String parkingLotID){
+            this.parkingLotID = parkingLotID;
             return this;
         }
 
         public Builder copy(ParkingSpace parkingSpace){
             this.parkingSpaceID = parkingSpace.parkingSpaceID;
             this.parkingSpaceNumber = parkingSpace.parkingSpaceNumber;
-            this.parkingLot = parkingSpace.parkingLot;
+            this.parkingLotID = parkingSpace.parkingLotID;
             return this;
 
         }

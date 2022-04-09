@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoleFactoryTest {
     @Test
     public void createRole(){
-        Role role= RoleFactory.createRole("","Student");
+        Role role= RoleFactory.createRole("Student");
         assertNotNull(role);
         System.out.println(role);
 

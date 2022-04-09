@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class VehicleFactoryTest {
     @Test
     public void createVehicle(){
-        Vehicle vehicle= VehicleFactory.createVehicle("","CF234246","SUV",  "Ford ecosport","Diamond white");
+        Vehicle vehicle= VehicleFactory.createVehicle("CF234246","SUV",  "Ford ecosport","Diamond white");
         assertNotNull(vehicle);
         System.out.println(vehicle);
 

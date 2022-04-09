@@ -11,7 +11,7 @@ import za.ac.cput.helper.GenerateID;
 
 
 public class RoleFactory {
-    public static Role createRole(String roleId, String roleName){
+    public static Role createRole(String roleName){
 
         String id= GenerateID.generateUUID();
 

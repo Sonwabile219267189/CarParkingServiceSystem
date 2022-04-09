@@ -9,7 +9,7 @@ import za.ac.cput.helper.GenerateID;
 
 
 public class VehicleFactory {
-    public static Vehicle createVehicle(String vehicleId, String vehiclePlateNumber, String vehicleType, String vehicleModel, String vehicleColour){
+    public static Vehicle createVehicle(String vehiclePlateNumber, String vehicleType, String vehicleModel, String vehicleColour){
 
         String id= GenerateID.generateUUID();
 

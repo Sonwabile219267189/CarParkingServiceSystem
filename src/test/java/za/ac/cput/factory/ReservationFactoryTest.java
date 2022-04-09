@@ -2,7 +2,7 @@
         Factory test for the Reservation class
 
 Author: Siyamtanda Tonjeni (217107958)
-        Date: 10 April 2022
+        Date: 9 April 2022
         */
 package za.ac.cput.factory;
 
@@ -18,7 +18,7 @@ public class ReservationFactoryTest {
     Reservation reservation = ReservationFactory.build("John","8/03/2022");
 
     @Test
-    public void genderTes(){
+    public void reservationTest(){
         Assertions.assertEquals(reservation, reservation);
         Assertions.assertSame(reservation,reservation);
     }

@@ -6,8 +6,6 @@
  */
 package za.ac.cput.entity;
 
-import sun.security.provider.certpath.Builder;
-
 public class Reservation {
     //declaration of private fields
     private String parkingLotID;
@@ -57,25 +55,46 @@ public class Reservation {
         private String reservationID;
         private String userID;
 
-        public void setParkingLotID(String parkingLotID) { this.parkingLotID = parkingLotID; }
-
-        public void setParkingSpaceID(String parkingSpaceID) { this.parkingSpaceID = parkingSpaceID; }
-
-        public void setScheduleID(String scheduleID) { this.scheduleID = scheduleID; }
-
-        public void setVehicleID(String vehicleID) { this.vehicleID = vehicleID; }
-
-        public void setUserName(String userName) { this.userName = userName; }
-
-        public void setDateOfReservation(String dateOfReservation) { this.dateOfReservation = dateOfReservation; }
-
-        public void setReservationID(String reservationID) { this.reservationID = reservationID; }
-
-        public void setUserID(String userID) { this.userID = userID; }
-
-        public Reservation build(){
-            return new Reservation(this);
+        public Builder setParkingLotID(String parkingLotID) {
+            this.parkingLotID = parkingLotID;
+            return this;
         }
+
+        public Builder setParkingSpaceID(String parkingSpaceID) {
+            this.parkingSpaceID = parkingSpaceID;
+            return this;
+        }
+
+        public Builder setScheduleID(String scheduleID) {
+            this.scheduleID = scheduleID;
+            return this;
+        }
+
+        public Builder setVehicleID(String vehicleID) {
+            this.vehicleID = vehicleID;
+            return this;
+        }
+
+        public Builder setUserName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+
+        public Builder setDateOfReservation(String dateOfReservation) {
+            this.dateOfReservation = dateOfReservation;
+            return this;
+        }
+
+        public Builder setReservationID(String reservationID) {
+            this.reservationID = reservationID;
+            return this;
+        }
+
+        public Builder setUserID(String userID) {
+            this.userID = userID;
+            return this;
+        }
+
         // copy constructor to creates an object using another object of the same Java class
         public Builder copy(Reservation reservation){
             this.parkingLotID = reservation.parkingLotID;
@@ -90,14 +109,11 @@ public class Reservation {
             return this;
         }
 
-        public Reservation builder() {
-            return build();
+        public Reservation build() {
+            return new Reservation(this);
         }
     }
 
-    public String getReservationID() {
-        return reservationID;
-    }
 
 }
 

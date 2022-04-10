@@ -1,6 +1,6 @@
 package za.ac.cput.entity;
 
-/** 
+/**
  * Entity for the User
  * Author: Abongile Tshopi (214254151)
  * Date: 09 April 2022
@@ -15,7 +15,7 @@ public class User {
     private String emailAddress;
 
     //getters
-    public String getUserId() {
+    public String getUserID() {
         return userID;
     }
 

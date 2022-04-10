@@ -113,6 +113,9 @@ public class Reservation {
             return new Reservation(this);
         }
     }
+    public String getReservationID() {
+        return reservationID;
+    }
 
 
 }

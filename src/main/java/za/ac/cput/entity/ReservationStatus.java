@@ -54,7 +54,9 @@ public class ReservationStatus {
         public ReservationStatus build() {
             return new ReservationStatus(this);
         }
-
+    }
+    public String getReservationID() {
+        return reservationID;
     }
 }
 

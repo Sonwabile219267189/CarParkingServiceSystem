@@ -1,6 +1,6 @@
 /**
  * CampusRepository.java
- * Interface for other classes to extend
+ * Repository for Campus
  * Author: Sonwabile Gxoyiya (219267189)
  * Date: 9 April 2022
  */
@@ -38,13 +38,7 @@ public class CampusRepository implements ICampusRepository{
 
     @Override
     public Campus read(String campusID) {
-        /*
-        for(Campus campus :campusDB)
-            if (campus.getCampusID().equals(campusID)) {
-                return campus;
-            }
-            return null;
-*/
+
          Campus campus = campusDB.stream()
                  .filter(c -> c.getCampusID().equals(campusID))
                  .findAny()

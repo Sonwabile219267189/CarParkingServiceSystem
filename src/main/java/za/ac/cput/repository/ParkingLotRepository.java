@@ -1,6 +1,6 @@
 /**
  * ParkingLotRepository.java
- * Interface for other classes to extend
+ * Repository for ParkingLot
  * Author: Sonwabile Gxoyiya (219267189)
  * Date: 9 April 2022
  */

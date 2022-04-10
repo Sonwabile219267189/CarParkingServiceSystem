@@ -38,11 +38,18 @@ public class CampusRepository implements ICampusRepository{
 
     @Override
     public Campus read(String campusID) {
+        /*
         for(Campus campus :campusDB)
-            if(campus.getCampusID().equals(campusID)){
-               return campus;
+            if (campus.getCampusID().equals(campusID)) {
+                return campus;
             }
-        return null;
+            return null;
+*/
+         Campus campus = campusDB.stream()
+                 .filter(c -> c.getCampusID().equals(campusID))
+                 .findAny()
+                 .orElse(null);
+         return  campus;
     }
 
     @Override

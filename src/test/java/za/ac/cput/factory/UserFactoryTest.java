@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
-/*
+/**
  *  Name: Abongile Tshopi
- *   Stdent Number: 214254151
+ *  Stdent Number: 214254151
  *  UserFactoryTes class
  */
 

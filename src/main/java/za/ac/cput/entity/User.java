@@ -1,9 +1,9 @@
 package za.ac.cput.entity;
 
-/*Role.java
-  Entity for the User
-  Author: Abongile Tshopi (214254151)
-  Date: 09 April 2022
+/** 
+ * Entity for the User
+ * Author: Abongile Tshopi (214254151)
+ * Date: 09 April 2022
  */
 
 public class User {

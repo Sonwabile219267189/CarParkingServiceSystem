@@ -1,4 +1,8 @@
 package za.ac.cput.factory;
+/** UserFactor.java
+ * Author: Abongile Tshopi (214254151)
+ * Date: 09 April 2022
+ */
 
 import za.ac.cput.entity.User;
 import za.ac.cput.helper.GenerateID;

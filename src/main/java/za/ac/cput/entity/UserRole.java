@@ -1,10 +1,9 @@
 package za.ac.cput.entity;
 
 
-/*
+/**
   * Name: Abongile Tshopi
   * Student Number: 214254151
-  * Group 8
   * UserRole entity
   */
 public class UserRole {

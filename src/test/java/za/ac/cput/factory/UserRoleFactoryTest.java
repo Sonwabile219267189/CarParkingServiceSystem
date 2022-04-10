@@ -1,4 +1,9 @@
 package za.ac.cput.factory;
+/** UserFactoryTest.java
+ *  Author: Abongile Tshopi (214254151)
+ *  Student Number: 214254151
+ *  Date: 09 April 2022
+ */
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,9 +28,4 @@ public class UserRoleFactoryTest {
         assertSame(userRole0, userRole1);
         System.out.println("Objects are equal");
     }
-
-
-
-
-
 }

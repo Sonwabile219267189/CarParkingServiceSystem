@@ -21,7 +21,7 @@ class ParkingLotFactoryTest {
     }
 
     @Test
-    public void testParkingLotIsSame(){
+    public void testParkingLotNotSame(){
         ParkingLot parkingLot = ParkingLotFactory.build("District6CampusLot","2");
         ParkingLot parkingLot1 = ParkingLotFactory.build("BellvileCampus","1");
         assertNotSame(parkingLot,parkingLot1);

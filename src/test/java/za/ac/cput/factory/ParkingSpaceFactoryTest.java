@@ -17,9 +17,20 @@ class ParkingSpaceFactoryTest {
     @Test
     public void testCreateParkingSpace(){
         ParkingLot parkingLot = ParkingLotFactory.build("District6CampusLot","1");
-        ParkingSpace parkingSpace = ParkingSpaceFactory.build("4",parkingLot.getParkingLotID());
+        ParkingSpace parkingSpace = ParkingSpaceFactory.build("4",parkingLot.getParkingLotID(),true);
         assertNotNull(parkingSpace);
         System.out.println(parkingSpace.toString());
+    }
+
+    @Test
+    public void testParkingSpaceNotSame(){
+        ParkingLot parkingLot = ParkingLotFactory.build("District6CampusLot","1");
+        ParkingSpace parkingSpace = ParkingSpaceFactory.build("4",parkingLot.getParkingLotID(), true);
+        ParkingSpace parkingSpace1 = new ParkingSpace.Builder()
+                .copy(parkingSpace)
+                .build();
+        assertNotSame(parkingSpace1, parkingSpace);
+
     }
 
 }

@@ -6,11 +6,15 @@
  */
 package za.ac.cput.repository;
 
+        import org.junit.jupiter.api.MethodOrderer;
         import org.junit.jupiter.api.Test;
+        import org.junit.jupiter.api.TestMethodOrder;
         import za.ac.cput.entity.Reservation;
         import za.ac.cput.factory.ReservationFactory;
 
         import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 
 public class ReservationRepositoryTest {
 
@@ -40,6 +44,12 @@ public class ReservationRepositoryTest {
     public void delete(){
         ReservationRepository.delete(reservation.getReservationID());
         System.out.println("Deleted" + reservation.getReservationID() + "");
+    }
+
+    @Test
+    public void getAll() {
+        System.out.print("display all reservations: ");
+        System.out.println(ReservationRepository.getAll());
     }
 
 }

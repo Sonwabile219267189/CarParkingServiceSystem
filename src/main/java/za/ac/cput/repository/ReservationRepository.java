@@ -7,6 +7,7 @@
 
 package za.ac.cput.repository;
 
+import za.ac.cput.entity.Campus;
 import za.ac.cput.entity.Reservation;
 import za.ac.cput.factory.ReservationFactory;
 
@@ -50,5 +51,9 @@ public class ReservationRepository {
             this.reservationDB.remove((reservation));
         }
         return null;
+    }
+
+    public Set<Reservation> getAll() {
+        return reservationDB;
     }
 }

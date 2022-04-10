@@ -1,3 +1,9 @@
+/**
+ * CampusRepositoryTest.java
+ * Test for CampusRepository.java
+ * Author: Sonwabile Gxoyiya (219267189)
+ * Date: 9 April 2022
+ */
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.MethodOrderer;

@@ -37,12 +37,12 @@ public class ParkingLotRepository implements IParkingLotRepository{
 
     @Override
     public ParkingLot read(String parkingLotID) {
-        for(ParkingLot parkingLot : parkingLotDB){
-            if(parkingLot.getParkingLotID().equals(parkingLotID)){
-                return parkingLot;
-            }
-        }
-        return null;
+
+        ParkingLot parkingLot = parkingLotDB.stream()
+                .filter(pl -> pl.getParkingLotID().equals(parkingLotID))
+                .findAny()
+                .orElse(null);
+        return parkingLot;
     }
 
     @Override

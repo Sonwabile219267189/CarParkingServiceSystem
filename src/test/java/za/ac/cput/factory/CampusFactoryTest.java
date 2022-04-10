@@ -6,18 +6,36 @@
  */
 package za.ac.cput.factory;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import za.ac.cput.entity.Campus;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CampusFactoryTest {
 
+    Campus campus = CampusFactory.build("District 6 Campus", "Cape Town");
+
     @Test
     public void testCreateCampus(){
-        Campus campus = CampusFactory.build("District 6 Campus","Cape Town");
-        assertNotNull(campus);
-        System.out.println(campus.toString());
+        Campus campus1 = CampusFactory.build("District 6 Campus","Cape Town");
+        assertNotNull(campus1);
+        System.out.println(campus1.toString());
     }
+
+
+    @Test
+    public void testNotSame(){
+        Campus campusCopy = new Campus.Builder()
+                .copy(campus)
+                .build();
+        assertNotSame(campusCopy,campus);
+        System.out.println("CampusCopy: " + campusCopy.toString());
+        System.out.println("CampusCopy: " + campus.toString());
+
+    }
+
+
 
 }

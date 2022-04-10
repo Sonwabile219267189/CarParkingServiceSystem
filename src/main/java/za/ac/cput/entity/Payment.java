@@ -37,6 +37,11 @@ public class Payment {
         this.bankNumber = bankNumber;
     }
 
+    public String getPaymentID() {
+        return paymentId;
+    }
+
+
     public static class Builder {
 
         private String paymentId;

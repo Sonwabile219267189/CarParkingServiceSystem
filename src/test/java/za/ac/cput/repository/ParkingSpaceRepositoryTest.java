@@ -22,14 +22,14 @@ class ParkingSpaceRepositoryTest {
 
     private static ParkingSpaceRepository repository = ParkingSpaceRepository.getRepository();
     private static ParkingLot parkingLot = ParkingLotFactory.build("District6","1");
-    private static ParkingSpace parkingSpace = ParkingSpaceFactory.build("1",parkingLot.getParkingLotID());
+    private static ParkingSpace parkingSpace = ParkingSpaceFactory.build("1",parkingLot.getParkingLotID(), true);
 
     @Test
     @Order(1)
     void create() {
         ParkingSpace created = repository.create(parkingSpace);
         assertNotNull(created);
-        System.out.println("[Create]: " + created);
+        System.out.println("[Create]: \t" + created);
     }
 
     @Test

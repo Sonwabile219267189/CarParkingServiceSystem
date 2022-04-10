@@ -54,6 +54,11 @@ public class Schedule {
                 ", endTime=" + endTime + '\''+
                 '}';
     }
+
+    public String getScheduleID() {
+        return scheduleId;
+    }
+
     public static class Builder {
 
         private String userId;
@@ -62,32 +67,32 @@ public class Schedule {
         private LocalDateTime startTime;
         private LocalDateTime endTime;
 
-        public Schedule.Builder seUserId(String userId) {
+        public Builder seUserId(String userId) {
             this.userId = userId;
             return this;
         }
 
-        public Schedule.Builder setVehicleId(String VehicleId) {
+        public Builder setVehicleId(String VehicleId) {
             this.vehicleId = VehicleId;
             return this;
         }
 
-        public Schedule.Builder setScheduleId(String scheduleId) {
+        public Builder setScheduleId(String scheduleId) {
             this.scheduleId = scheduleId;
             return this;
         }
 
-        public Schedule.Builder setStartTime(LocalDateTime startTime) {
+        public Builder setStartTime(LocalDateTime startTime) {
             this.startTime = startTime;
             return this;
         }
 
-        public Schedule.Builder setEndTime(LocalDateTime endTime) {
+        public Builder setEndTime(LocalDateTime endTime) {
             this.endTime = endTime;
             return this;
         }
 
-        public Schedule.Builder copy(Schedule schedule) {
+        public Builder copy(Schedule schedule) {
             this.userId = schedule.userId;
             this.vehicleId = schedule.vehicleId;
             this.scheduleId = schedule.scheduleId;

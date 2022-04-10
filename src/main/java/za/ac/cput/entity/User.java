@@ -51,6 +51,18 @@ public class User {
 
     }
 
+    @Override
+    public String toString() {
+        return "Builder{" +
+                "userID='" + userID + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", cellNumber='" + cellNumber + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
+
     public static class Builder {
         private String userID;
         private String firstName;
@@ -60,27 +72,33 @@ public class User {
         private String emailAddress;
 
         public Builder setUserID(String userID) {
-            return setUserID(userID);
+            this.userID= userID;
+            return this;
         }
 
         public Builder setFirstName(String firstName) {
-            return setFirstName(firstName);
+            this.firstName = firstName;
+            return this;
         }
 
         public Builder setLastName(String lastName) {
-            return setLastName(lastName);
+            this.lastName= lastName;
+            return this;
         }
 
         public Builder setAddress(String address) {
-            return setAddress(address);
+            this.address = address;
+            return this;
         }
 
         public Builder setCellNumber(String cellNumber) {
-            return setCellNumber(cellNumber);
+            this.cellNumber = cellNumber;
+            return this;
         }
 
         public Builder setEmailAddress(String emailAddress) {
-            return setEmailAddress(emailAddress);
+            this.emailAddress = emailAddress;
+            return this;
 
         }
 
@@ -97,16 +115,6 @@ public class User {
             return new User(this);
         }
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "userID='" + userID + '\'' +
-                    ", firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    ", address='" + address + '\'' +
-                    ", cellNumber='" + cellNumber + '\'' +
-                    ", emailAddress='" + emailAddress + '\'' +
-                    '}';
-        }
+
     }
 }

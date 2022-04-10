@@ -23,12 +23,18 @@ public class UserRole {
          return roleID;
      }
 
-
-
      private UserRole(Builder builder){
          this.userID = builder.userID;
          this.roleID = builder.roleID;
      }
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "userID='" + userID + '\'' +
+                ", roleID='" + roleID + '\'' +
+                '}';
+    }
 
      public static class Builder{
          private String userID;
@@ -54,12 +60,4 @@ public class UserRole {
              return new UserRole();
          }
      }
-
-    @Override
-    public String toString() {
-        return "UserRole{" +
-                "userID='" + userID + '\'' +
-                ", roleID='" + roleID + '\'' +
-                '}';
-    }
 }

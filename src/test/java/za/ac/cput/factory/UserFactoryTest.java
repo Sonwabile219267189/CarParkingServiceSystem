@@ -5,36 +5,52 @@ package za.ac.cput.factory;
  *  UserFactoryTes class
  */
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.User;
-import za.ac.cput.factory.*;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static java.lang.Compiler.disable;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserFactoryTest {
-    private UserFactory user0;
-    private UserFactory user1;
-
-    @BeforeEach
     @Test
-    public void createUser0(){
-        User user0 = UserFactory.build("Ludwe","Kona", "0815678910",
+    void testCreateUser0() {
+               User user0 = UserFactory.build("Ludwe","Kona", "0815678910",
                 "192 Voortrekker Parow","ludwew@gmail.com");
-
-        User user1 = UserFactory.build("Fudwe","Kona", "0815678910",
-                "192 Voortrekker Parow","fudwew@gmail.com");
-
-        System.out.println(user0.toString());
         assertNotNull(user0);
-
+        System.out.println(user0.toString());
     }
 
+    User user0 = UserFactory.build("Ludwe","Kona", "0815678910",
+            "192 Voortrekker Parow","ludwew@gmail.com");
+
+    User user1 = UserFactory.build("Fudwe","Kona", "0815678910",
+            "192 Voortrekker Parow","fudwew@gmail.com");
+
+    // This method will fail since the object created above is not the same
+    @Test
+    void testIdentity(){
+        assertNotSame(user0, user1);
+        System.out.println(user0);
+        System.out.println(user1);
+    }
+
+    //This test fails
+    @Test
+    public void failTest(){
+        try{
+            fail("Test is failing");
+        } catch (Exception e) {
+            e.printStackTrace();
+            assertTrue(true);
+        }
+    }
+
+    //This method will stop/disable the program processing
     @Test
     @Disabled
     public void disabling(){
         System.out.println("Temporal technical issues");
-        disabling();
+        disable();
 
     }
 }

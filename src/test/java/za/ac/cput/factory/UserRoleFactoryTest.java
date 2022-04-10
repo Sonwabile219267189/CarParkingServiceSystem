@@ -14,14 +14,18 @@ public class UserRoleFactoryTest {
     void setUp() {
         userRole0 = new UserRoleFactory();
         userRole1 = new UserRoleFactory();
-        //userRole1 = new userRole0;
+        userRole1 =  userRole0;
     }
 
+    //Test object equality
     @Test
     void testEquality(){
-        assertSame(userRole0, userRole0);
+        assertSame(userRole0, userRole1);
         System.out.println("Objects are equal");
     }
+
+
+
 
 
 }

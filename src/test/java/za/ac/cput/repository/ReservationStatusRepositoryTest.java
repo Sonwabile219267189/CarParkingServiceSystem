@@ -7,11 +7,15 @@
 
 package za.ac.cput.repository;
 
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.ReservationStatus;
 import za.ac.cput.factory.ReservationStatusFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@TestMethodOrder(MethodOrderer.MethodName.class)
 
 public class ReservationStatusRepositoryTest {
 
@@ -41,6 +45,12 @@ public class ReservationStatusRepositoryTest {
     public void delete(){
         ReservationStatusRepository.delete(reservationStatus.getReservationID());
         System.out.println("Deleted" + reservationStatus.getReservationID() + "");
+    }
+
+    @Test
+    public void getAll() {
+        System.out.print("display all reserved: ");
+        System.out.println(ReservationStatusRepository.getAll());
     }
 
 }

@@ -1,17 +1,15 @@
-/* IRepository.java
-   Author: Nikiwe Mkontshwana(214236714)
-   IRepository
-   Date: 08April2022
-*/
-
+/**
+ * IRepository.java
+ * Interface for other classes to extend
+ * Author: Sonwabile Gxoyiya (219267189)
+ * Date: 9 April 2022
+ */
 package za.ac.cput.repository;
 
-public interface IRepository<T,ID> {
-    public T create(T t);
+public interface IRepository<T, ID> {
 
-    public T read(ID id);
-
-    public T update(T t);
-
-    public boolean delete(ID id);
+    T create(T t);
+    T read(ID id);
+    T update(T t);
+    boolean delete(ID id);
 }

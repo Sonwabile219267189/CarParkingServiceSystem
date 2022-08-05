@@ -6,11 +6,12 @@ package za.ac.cput.entity;
   Date: 07 April 2022
  */
 
+import java.util.Objects;
+
 public class Vehicle {
 
-    private String vehicleId;
-    private String vehiclePlateNumber;
-    private String vehicleType;
+    private String vehicleNumberPlate;
+    private String userId;
     private String vehicleModel;
     private String vehicleColour;
 
@@ -19,27 +20,22 @@ public class Vehicle {
     }
 
 
-   //
+    //
     private Vehicle(Builder builder){
-        this.vehicleId=builder.vehicleId;
-        this.vehiclePlateNumber=builder.vehiclePlateNumber;
-        this.vehicleType=builder.vehicleType;
+        this.vehicleNumberPlate=builder.vehicleNumberPlate;
+        this.userId=builder.userId;
         this.vehicleModel=builder.vehicleModel;
         this.vehicleColour=builder.vehicleColour;
 
     }
 
     //
-    public String getVehicleId() {
-        return vehicleId;
+    public String getVehicleNumberPlate() {
+        return vehicleNumberPlate;
     }
 
-    public String getVehiclePlateNumber() {
-        return vehiclePlateNumber;
-    }
-
-    public String getVehicleType() {
-        return vehicleType;
+    public String getUserId() {
+        return userId;
     }
 
     public String getVehicleModel() {
@@ -52,24 +48,19 @@ public class Vehicle {
 
     //
     public static class Builder{
-        private String vehicleId;
-        private String vehiclePlateNumber;
-        private String vehicleType;
+        private String vehicleNumberPlate;
+        private String userId;
         private String vehicleModel;
         private String vehicleColour;
 
-        public Builder setVehicleId(String vehicleId){
-            this.vehicleId=vehicleId;
+
+        public Builder setVehicleNumberPlate(String vehicleNumberPlate){
+            this.vehicleNumberPlate=vehicleNumberPlate;
             return this;
         }
 
-        public Builder setVehiclePlateNumber(String vehiclePlateNumber){
-            this.vehiclePlateNumber=vehiclePlateNumber;
-            return this;
-        }
-
-        public Builder setVehicleType(String vehicleType){
-            this.vehicleType=vehicleType;
+        public Builder setUserId(String userId){
+            this.userId=userId;
             return this;
         }
 
@@ -89,9 +80,8 @@ public class Vehicle {
 
 
         public Builder copy(Vehicle vehicle){
-            this.vehicleId=vehicle.vehicleId;
-            this.vehiclePlateNumber=vehicle.vehiclePlateNumber;
-            this.vehicleType=vehicle.vehicleType;
+            this.vehicleNumberPlate=vehicle.vehicleNumberPlate;
+            this.userId=vehicle.userId;
             this.vehicleModel=vehicle.vehicleModel;
             this.vehicleColour=vehicle.vehicleColour;
             return this;
@@ -101,9 +91,8 @@ public class Vehicle {
     @Override
     public String toString() {
         return "Vehicle{" +
-                "vehicleId='" + vehicleId + '\'' +
-                ", vehiclePlateNumber='" + vehiclePlateNumber + '\'' +
-                ", vehicleType='" + vehicleType + '\'' +
+                "vehicleNumberPlate='" + vehicleNumberPlate + '\'' +
+                ", userId='" + userId + '\'' +
                 ", vehicleModel='" + vehicleModel + '\'' +
                 ", vehicleColour='" + vehicleColour + '\'' +
                 '}';

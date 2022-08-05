@@ -50,7 +50,7 @@ public class Role {
             return new Role(this);
         }
 
-        public Role.Builder copy(Role role){
+        public Builder copy(Role role){
             this.roleId=role.roleId;
             this.roleName=role.roleName;
             return this;

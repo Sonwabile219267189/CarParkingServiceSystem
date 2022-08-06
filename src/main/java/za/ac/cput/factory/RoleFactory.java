@@ -7,13 +7,13 @@ package za.ac.cput.factory;
  */
 
 import za.ac.cput.entity.Role;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 
 public class RoleFactory {
     public static Role createRole(String roleName){
 
-        String id= GenerateID.generateUUID();
+        String id= Helper.generateUUID();
 
         Role role= new Role.Builder().setRoleId(id)
                 .setRoleName(roleName)

@@ -7,17 +7,17 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Reservation;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 public class ReservationFactory {
 
     public static Reservation build(String userName, String dateOfReservation){
-        String reservationID = GenerateID.generateUUID();
-        String parkingLotID = GenerateID.generateUUID();
-        String parkingSpaceID = GenerateID.generateUUID();
-        String scheduleID = GenerateID.generateUUID();
-        String vehicleID = GenerateID.generateUUID();
-        String userID = GenerateID.generateUUID();
+        String reservationID = Helper.generateUUID();
+        String parkingLotID = Helper.generateUUID();
+        String parkingSpaceID = Helper.generateUUID();
+        String scheduleID = Helper.generateUUID();
+        String vehicleID = Helper.generateUUID();
+        String userID = Helper.generateUUID();
         return new Reservation.Builder()
                 .setReservationID(reservationID)
                 .setParkingLotID(parkingLotID)

@@ -6,12 +6,12 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Payment;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 public class PaymentFactory {
     public static Payment createPayment(Double paymentAmount , String bankAccount )
     {
-        String pay = GenerateID.generateUUID();
+        String pay = Helper.generateUUID();
         Payment payment= new Payment.Builder()
                 .setPaymentId(pay)
                 .setPaymentAmount(paymentAmount)

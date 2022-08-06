@@ -7,12 +7,12 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Campus;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 public class CampusFactory {
 
     public static Campus build( String campusName, String campusLocation){
-        String campusID = GenerateID.generateUUID();
+        String campusID = Helper.generateUUID();
         return new Campus.Builder()
                 .setCampusID(campusID)
                 .setCampusName(campusName)

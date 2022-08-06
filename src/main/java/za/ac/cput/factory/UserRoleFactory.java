@@ -1,14 +1,14 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.UserRole;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 public class UserRoleFactory {
 
         public static UserRole build(){
 
-            String userID = GenerateID.generateUUID();
-            String roleID = GenerateID.generateUUID();
+            String userID = Helper.generateUUID();
+            String roleID = Helper.generateUUID();
 
             return new UserRole.Builder()
                     .setUserID (userID)

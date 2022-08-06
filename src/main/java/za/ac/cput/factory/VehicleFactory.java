@@ -5,13 +5,13 @@ package za.ac.cput.factory;
   Date: 07 April 2022
  */
 import za.ac.cput.entity.Vehicle;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 
 public class VehicleFactory {
     public static Vehicle createVehicle(String vehiclePlateNumber, String vehicleType, String vehicleModel, String vehicleColour){
 
-        String id= GenerateID.generateUUID();
+        String id= Helper.generateUUID();
 
         Vehicle vehicle = new Vehicle.Builder().setVehicleId(id)
                 .setVehiclePlateNumber(vehiclePlateNumber)

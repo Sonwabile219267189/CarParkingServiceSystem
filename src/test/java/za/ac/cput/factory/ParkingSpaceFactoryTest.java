@@ -2,7 +2,7 @@
  * ParkingSpaceFactoryTest.java
  * Test class to test ParkingSpaceFactory.java class
  * Author: Sonwabile Gxoyiya (219267189)
- * Date: 6 April 2022
+ * Date: 6 August 2022
  */
 package za.ac.cput.factory;
 
@@ -16,7 +16,7 @@ class ParkingSpaceFactoryTest {
 
     @Test
     public void testCreateParkingSpace(){
-        ParkingLot parkingLot = ParkingLotFactory.build("District6CampusLot","1");
+        ParkingLot parkingLot = ParkingLotFactory.build("District 6","1");
         ParkingSpace parkingSpace = ParkingSpaceFactory.build("4",parkingLot.getParkingLotID(),true);
         assertNotNull(parkingSpace);
         System.out.println(parkingSpace.toString());
@@ -24,7 +24,7 @@ class ParkingSpaceFactoryTest {
 
     @Test
     public void testParkingSpaceNotSame(){
-        ParkingLot parkingLot = ParkingLotFactory.build("District6CampusLot","1");
+        ParkingLot parkingLot = ParkingLotFactory.build("District 6","1");
         ParkingSpace parkingSpace = ParkingSpaceFactory.build("4",parkingLot.getParkingLotID(), true);
         ParkingSpace parkingSpace1 = new ParkingSpace.Builder()
                 .copy(parkingSpace)

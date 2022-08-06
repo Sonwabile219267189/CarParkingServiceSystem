@@ -8,7 +8,7 @@ package za.ac.cput.repository;
 
 import java.util.List;
 import za.ac.cput.entity.Campus;
-
+@Deprecated
 public interface ICampusRepository extends IRepository<Campus, String>{
 
     public List<Campus> getAll();

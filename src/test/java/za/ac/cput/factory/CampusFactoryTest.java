@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Timeout;
 import za.ac.cput.entity.Campus;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Deprecated
 class CampusFactoryTest {
 
     Campus campus = CampusFactory.build("District 6 Campus", "Cape Town");

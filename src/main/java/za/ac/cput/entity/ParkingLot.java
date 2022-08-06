@@ -2,18 +2,19 @@
  * ParkingLot.java
  * Entity for ParkingLot
  * Author: Sonwabile Gxoyiya (219267189)
- * Date: 5 April 2022
+ * Date: 6 August 2022
  */
 package za.ac.cput.entity;
 
 public class ParkingLot {
     private String parkingLotID;
-    private String parkingLotName;
+    private String campusName;
+    //private String parkingLotName;
     private String parkingLotNumber;
 
-    public String getParkingLotName() {
-        return parkingLotName;
-    }
+//    public String getParkingLotName() {
+//        return parkingLotName;
+//    }
 
     public String getParkingLotNumber() {
         return parkingLotNumber;
@@ -23,9 +24,12 @@ public class ParkingLot {
         return this.parkingLotID;
     }
 
+    public String getCampusName(){return this.campusName;}
+
     private ParkingLot(Builder builder){
         this.parkingLotID = builder.parkingLotID;
-        this.parkingLotName = builder.parkingLotName;
+        this.campusName = builder.campusName;
+        //this.parkingLotName = builder.parkingLotName;
         this.parkingLotNumber = builder.parkingLotNumber;
 
     }
@@ -34,7 +38,7 @@ public class ParkingLot {
     public String toString() {
         return "ParkingLot{" +
                 "parkingLotID='" + parkingLotID + '\'' +
-                ", parkingLotName='" + parkingLotName + '\'' +
+                ", campusName='" + campusName + '\'' +
                 ", parkingLotNumber='" + parkingLotNumber + '\'' +
                 '}';
     }
@@ -43,7 +47,8 @@ public class ParkingLot {
 
     public static class Builder{
         private String parkingLotID;
-        private String parkingLotName;
+        private String campusName;
+        //private String parkingLotName;
         private String parkingLotNumber;
 
         public Builder setParkingLotID(String parkingLotID){
@@ -51,10 +56,15 @@ public class ParkingLot {
             return this;
         }
 
-        public Builder setParkingLotName(String parkingLotName){
-            this.parkingLotName = parkingLotName;
+        public Builder setCampusName(String campusName){
+            this.campusName = campusName;
             return this;
         }
+
+//        public Builder setParkingLotName(String parkingLotName){
+//            this.parkingLotName = parkingLotName;
+//            return this;
+//        }
 
         public Builder setParkingLotNumber(String parkingLotNumber){
             this.parkingLotNumber = parkingLotNumber;
@@ -63,7 +73,8 @@ public class ParkingLot {
 
         public Builder copy(ParkingLot parkingLot){
             this.parkingLotID = parkingLot.parkingLotID;
-            this.parkingLotName = parkingLot.parkingLotName;
+            this.campusName = parkingLot.campusName;
+            //this.parkingLotName = parkingLot.parkingLotName;
             this.parkingLotNumber = parkingLot.parkingLotNumber;
             return this;
 

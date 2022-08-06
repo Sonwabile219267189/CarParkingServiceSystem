@@ -2,7 +2,7 @@
  * ParkingSpace.java
  * Entity for ParkingSpace
  * Author: Sonwabile Gxoyiya (219267189)
- * Date: 5 April 2022
+ * Date: 6 August 2022
  */
 package za.ac.cput.entity;
 

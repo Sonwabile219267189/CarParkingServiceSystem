@@ -8,4 +8,4 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/carparkingservice-db?createDatabaseIfNotExist=true
     username: root
-    password: password
+    password: 

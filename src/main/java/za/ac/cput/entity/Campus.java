@@ -5,7 +5,7 @@
  * Date: 5 April 2022
  */
 package za.ac.cput.entity;
-
+@Deprecated
 public class Campus {
     private String campusID;
     private String campusName;

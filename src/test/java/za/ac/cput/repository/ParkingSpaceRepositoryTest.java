@@ -2,7 +2,7 @@
  * ParkingSpaceRepositoryTest.java
  * Test for ParkingSpaceRepository.java
  * Author: Sonwabile Gxoyiya (219267189)
- * Date: 9 April 2022
+ * Date: 6 August 2022
  */
 package za.ac.cput.repository;
 
@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ParkingSpaceRepositoryTest {
 
     private static ParkingSpaceRepository repository = ParkingSpaceRepository.getRepository();
-    private static ParkingLot parkingLot = ParkingLotFactory.build("District6","1");
+    private static ParkingLot parkingLot = ParkingLotFactory.build("District 6","1");
     private static ParkingSpace parkingSpace = ParkingSpaceFactory.build("1",parkingLot.getParkingLotID(), true);
 
     @Test

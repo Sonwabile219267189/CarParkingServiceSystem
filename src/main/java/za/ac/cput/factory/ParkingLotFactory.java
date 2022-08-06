@@ -11,11 +11,11 @@ import za.ac.cput.util.Helper;
 
 public class ParkingLotFactory {
 
-    public static ParkingLot build(String parkingLotName, String parkingLotNumber){
+    public static ParkingLot build(String campusName, String parkingLotNumber){
         String parkingLotID = Helper.generateUUID();
         return new ParkingLot.Builder()
                 .setParkingLotID(parkingLotID)
-                .setParkingLotName(parkingLotName)
+                .setCampusName(campusName)
                 .setParkingLotNumber(parkingLotNumber)
                 .build();
     }

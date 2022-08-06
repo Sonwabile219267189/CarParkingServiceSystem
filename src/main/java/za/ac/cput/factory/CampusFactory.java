@@ -8,7 +8,7 @@ package za.ac.cput.factory;
 
 import za.ac.cput.entity.Campus;
 import za.ac.cput.util.Helper;
-
+@Deprecated
 public class CampusFactory {
 
     public static Campus build( String campusName, String campusLocation){

@@ -14,7 +14,7 @@ import za.ac.cput.entity.Campus;
 import za.ac.cput.factory.CampusFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@Deprecated
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CampusRepositoryTest {
 

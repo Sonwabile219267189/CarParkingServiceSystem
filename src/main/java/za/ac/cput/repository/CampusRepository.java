@@ -9,7 +9,7 @@ package za.ac.cput.repository;
 import za.ac.cput.entity.Campus;
 
 import java.util.*;
-
+@Deprecated
 public class CampusRepository implements ICampusRepository{
 
     public static CampusRepository repository = null;

@@ -7,12 +7,12 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.ParkingLot;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 public class ParkingLotFactory {
 
     public static ParkingLot build(String campusName, String parkingLotNumber){
-        String parkingLotID = GenerateID.generateUUID();
+        String parkingLotID = Helper.generateUUID();
         return new ParkingLot.Builder()
                 .setParkingLotID(parkingLotID)
                 .setCampusName(campusName)

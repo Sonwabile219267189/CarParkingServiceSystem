@@ -9,13 +9,17 @@ import za.ac.cput.util.Helper;
 
 
 public class VehicleFactory {
-    public static Vehicle createVehicle(String vehiclePlateNumber, String vehicleType, String vehicleModel, String vehicleColour){
+    public static Vehicle createVehicle(String vehicleNumberPlate, String vehicleModel, String vehicleColour){
+
+        Helper.isEmptyOrNull(vehicleNumberPlate);
+        Helper.isEmptyOrNull(vehicleModel);
+        Helper.isEmptyOrNull(vehicleColour);
 
         String id= Helper.generateUUID();
 
-        Vehicle vehicle = new Vehicle.Builder().setVehicleId(id)
-                .setVehiclePlateNumber(vehiclePlateNumber)
-                .setVehicleType(vehicleType)
+        Vehicle vehicle = new Vehicle.Builder()
+                .setVehicleNumberPlate(vehicleNumberPlate)
+                .setUserId(id)
                 .setVehicleModel(vehicleModel)
                 .setVehicleColour(vehicleColour)
                 .build();

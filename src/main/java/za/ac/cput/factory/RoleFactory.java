@@ -13,6 +13,8 @@ import za.ac.cput.util.Helper;
 public class RoleFactory {
     public static Role createRole(String roleName){
 
+        Helper.isEmptyOrNull(roleName);
+
         String id= Helper.generateUUID();
 
         Role role= new Role.Builder().setRoleId(id)

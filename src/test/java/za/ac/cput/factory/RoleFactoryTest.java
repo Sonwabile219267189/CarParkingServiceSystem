@@ -20,4 +20,14 @@ class RoleFactoryTest {
         System.out.println(role);
 
     }
+
+    @Test
+        // checks if the string in not null or empty and then throws
+        // an IllegalArgumentException
+    void CreateRoleWithAnError(){
+        Exception exception=assertThrows(IllegalArgumentException.class, ()->
+                RoleFactory.createRole(""));
+        System.out.println(exception.getMessage()+": role name");
+
+    }
 }

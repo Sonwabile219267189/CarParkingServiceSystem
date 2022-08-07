@@ -3,57 +3,69 @@
 
  Author: Siyamtanda Tonjeni (217107958)
  Date: 10 April 2022
- */
+
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Reservation;
 import za.ac.cput.entity.ReservationStatus;
-import za.ac.cput.factory.ReservationStatusFactory;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.HashSet;
-import java.util.Set;
-
-public class ReservationStatusRepository {
+public class ReservationStatusRepository implements IReservationStatusRepository{
 
 
-    private Set<ReservationStatus> reservationStatusDB;
+    private List<ReservationStatus> reservationStatusList;
+    private static ReservationStatusRepository reservationStatusRepository;
 
     public ReservationStatusRepository(){
-        this.reservationStatusDB= new HashSet<>();
+        this.reservationStatusList= new ArrayList<>();
     }
 
-    public ReservationStatus create(String complete){
-        ReservationStatus reservationStatus = ReservationStatusFactory.build(complete);
-        this.reservationStatusDB.add(reservationStatus);
-        return reservationStatus;
+    public static ReservationStatusRepository getRepsoitory(){
+        if(reservationStatusRepository == null)
+            reservationStatusRepository = new ReservationStatusRepository();
+        return reservationStatusRepository;
     }
-    public ReservationStatus read(String reservationID){
-        ReservationStatus reservationStatus = null;
-        for(ReservationStatus rs : reservationStatusDB){
-            if(rs.getReservationID().equalsIgnoreCase(reservationID)){
-                reservationStatus = rs;
-                break;
-            }
-        }
-        return reservationStatus;
+
+    @Override
+    public ReservationStatus create(ReservationStatus reservationStatus){
+        boolean created = reservationStatusList.add(reservationStatus);
+        if(!created)
+            return null;
+        else return reservationStatus;
     }
+
+    @Override
+    public ReservationStatus read(String reservationStatusID){
+      ReservationStatus reservationStatus = this.reservationStatusList.stream()
+              .filter(g -> g.getReservationStatusID().equals(reservationStatusID))
+              .findAny()
+              .orElse(null);
+      return reservationStatus;
+    }
+
+    @Override
     public ReservationStatus update(ReservationStatus reservationStatus){
-        ReservationStatus reservationStatus1 = read(reservationStatus.getReservationID());
+        ReservationStatus reservationStatus1 = read(reservationStatus.getReservationStatusID());
         if(reservationStatus1!= null){
-            reservationStatusDB.remove(reservationStatus1);
-            reservationStatusDB.add(reservationStatus1);
+            reservationStatusList.remove(reservationStatus1);
+            reservationStatusList.add(reservationStatus1);
         }
         return reservationStatus1;
     }
-    public ReservationStatus delete(String reservationID){
-        ReservationStatus reservationStatus = read(reservationID);
-        if(reservationID!=null){
-            this.reservationStatusDB.remove((reservationStatus));
+
+    @Override
+    public boolean delete(String reservationStatusID){
+        ReservationStatus reservationStatus = read(reservationStatusID);
+        if(reservationStatusID!=null){
+            this.reservationStatusList.remove((reservationStatus));
         }
-        return null;
+        return true;
     }
 
-    public Set<ReservationStatus> getAll() {
-        return reservationStatusDB;
+    @Override
+    public List<ReservationStatus> getAll() {
+        return reservationStatusList;
     }
 }
+
+ */

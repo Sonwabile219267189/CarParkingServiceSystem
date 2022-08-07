@@ -7,50 +7,55 @@
 
 package za.ac.cput.repository;
 
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.ReservationStatus;
 import za.ac.cput.factory.ReservationStatusFactory;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Optional;
 
-@TestMethodOrder(MethodOrderer.MethodName.class)
+import static org.junit.jupiter.api.Assertions.*;
+
+@SpringBootTest
 
 public class ReservationStatusRepositoryTest {
 
-    private static ReservationStatusRepository ReservationStatusRepository = new ReservationStatusRepository();
-    private ReservationStatus reservationStatus = ReservationStatusFactory.build("Reserved");
+    @Autowired
+    private static IReservationStatusRepository reservationStatusRepository;
+    private ReservationStatus reservationStatus = ReservationStatusFactory.build("T4355",
+            "reserved");
 
     @Test
-    public void create(){
-        ReservationStatus created = ReservationStatusRepository.create("Reserved");
-        assertEquals(reservationStatus.getReservationID(), created.getReservationID());
-        System.out.println("Created" + created);
-    }
-
-    @Test
-    public void update(){
-        ReservationStatus updated = new ReservationStatus.Builder().copy(reservationStatus).setComplete("Empty").build();
-        System.out.println("Updated" + updated);
+    public void save(){
+        ReservationStatus save = reservationStatusRepository.save(reservationStatus);
+        assertNotNull(save);
+        System.out.println("Save reservation status: " + save);
     }
 
     @Test
     public void read(){
-        ReservationStatus read = ReservationStatusRepository.read(reservationStatus.getReservationID());
-        System.out.println("Read" +read);
+        ReservationStatus save = reservationStatusRepository.save(reservationStatus);
+
+        Optional<ReservationStatus> read = reservationStatusRepository.findById(
+                reservationStatus.getReservationStatusID());
+        assertNotNull(read);
+        System.out.println("Read reservation status: " + read);
     }
 
     @Test
     public void delete(){
-        ReservationStatusRepository.delete(reservationStatus.getReservationID());
-        System.out.println("Deleted" + reservationStatus.getReservationID() + "");
+        ReservationStatus delete = reservationStatusRepository.save(reservationStatus);
+
+        reservationStatusRepository.deleteAll();
+        System.out.println(reservationStatusRepository.findAll());
     }
 
     @Test
     public void getAll() {
-        System.out.print("display all reserved: ");
-        System.out.println(ReservationStatusRepository.getAll());
+        ReservationStatus getAll = reservationStatusRepository.save(reservationStatus);
+
+        System.out.println(reservationStatusRepository.findAll());
     }
 
 }

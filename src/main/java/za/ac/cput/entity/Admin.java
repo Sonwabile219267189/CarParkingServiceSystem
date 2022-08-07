@@ -1,60 +1,64 @@
 /* Admin.java
-   author: Nikiwe Mkontshwana(214236714)
+   Author: Nikiwe Mkontshwana(214236714)
    Entity-Admin
    Date: 06April2022
- */
+*/
 
 package za.ac.cput.entity;
 
-public class Admin {
-    private String adminID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+import java.io.Serializable;
+
+@Entity
+public class Admin implements Serializable {
+
+    @Id
+    private String adminId;
+
     private String firstName;
     private String lastName;
 
+    protected Admin() {
+    }
+
+
     private Admin(Builder builder) {
-        this.adminID = builder.adminID;
+        this.adminId = builder.adminId;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
     }
-    public String getAdminID() {
-        return adminID;
-    }
 
-    public void setAdminID(String adminID) {
-        this.adminID = adminID;
+    public String getAdminId() {
+        return adminId;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
         return "Admin{" +
-                "adminID='" + adminID + '\'' +
+                "adminId=" + adminId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
     public static class Builder {
-        private String adminID;
+        private String adminId;
         private String firstName;
         private String lastName;
 
         public Builder setAdminID(String adminID) {
-            this.adminID = adminID;
+            this.adminId = adminId;
             return this;
         }
 
@@ -69,7 +73,7 @@ public class Admin {
         }
 
         public Builder copy(Admin admin) {
-            this.adminID = admin.adminID;
+            this.adminId = admin.adminId;
             this.firstName = admin.firstName;
             this.lastName = admin.lastName;
             return this;

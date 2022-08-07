@@ -5,7 +5,6 @@
 */
 
 package za.ac.cput.factory;
-
 import za.ac.cput.entity.Admin;
 
 public class AdminFactory {

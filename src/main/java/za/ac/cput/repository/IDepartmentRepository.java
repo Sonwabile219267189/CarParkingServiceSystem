@@ -6,10 +6,10 @@
 
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Department;
 
-import java.util.Set;
-
-public interface IDepartmentRepository extends IRepository<Department,String>{
-    public Set<Department> getAll();
+@Repository
+public interface IDepartmentRepository extends JpaRepository<Department, String> {
 }

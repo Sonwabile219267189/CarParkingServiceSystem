@@ -6,10 +6,12 @@
  */
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.ParkingLot;
 import java.util.List;
+@Repository
+public interface IParkingLotRepository extends JpaRepository<ParkingLot,String> {
 
-public interface IParkingLotRepository extends IRepository<ParkingLot,String>{
-
-    public List<ParkingLot> getAll();
+    //public List<ParkingLot> getAll();
 }

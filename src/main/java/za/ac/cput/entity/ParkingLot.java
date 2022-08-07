@@ -6,11 +6,18 @@
  */
 package za.ac.cput.entity;
 
-public class ParkingLot {
-    private String parkingLotID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class ParkingLot implements Serializable {
+    @Id private String parkingLotID;
     private String campusName;
     //private String parkingLotName;
     private String parkingLotNumber;
+
+    public ParkingLot(){}
 
 //    public String getParkingLotName() {
 //        return parkingLotName;

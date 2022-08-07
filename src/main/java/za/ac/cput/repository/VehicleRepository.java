@@ -37,10 +37,10 @@ public class VehicleRepository implements IVehicleRepository {
     }
 
     @Override
-    public Vehicle read(String vehicleId) {
+    public Vehicle read(String vehicleNumberPlate) {
         // reading using lambda expressions
         Vehicle vehicle=this.vehicleDB.stream()
-                .filter(a ->a.getVehicleId().equals(vehicleId))
+               .filter(a ->a.getVehicleNumberPlate().equals(vehicleNumberPlate))
                 .findAny()
                 .orElse(null);
 
@@ -48,9 +48,21 @@ public class VehicleRepository implements IVehicleRepository {
 
     }
 
-    @Override
+//    @Override
+//    public Vehicle update(Vehicle vehicle) {
+//        Vehicle oldVehicle=read(vehicle.getVehicleNumberPlate());
+//        if(oldVehicle != null){
+//            vehicleDB.remove(oldVehicle);
+//            vehicleDB.add(vehicle);
+//            return vehicle;
+//
+//        }
+//        return null;
+//    }
+
+        @Override
     public Vehicle update(Vehicle vehicle) {
-        Vehicle oldVehicle=read(vehicle.getVehicleId());
+        Vehicle oldVehicle=read(vehicle.getUserId());
         if(oldVehicle != null){
             vehicleDB.remove(oldVehicle);
             vehicleDB.add(vehicle);
@@ -60,9 +72,10 @@ public class VehicleRepository implements IVehicleRepository {
         return null;
     }
 
+
     @Override
-    public boolean delete(String id) {
-        Vehicle vehicleToDelete= read(id);
+    public boolean delete(String vehicleNumberPlate) {
+        Vehicle vehicleToDelete= read(vehicleNumberPlate);
         if(vehicleToDelete== null)
             return false;
         vehicleDB.remove(vehicleToDelete);

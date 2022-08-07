@@ -6,31 +6,26 @@
  */
 package za.ac.cput.factory;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.*;
 import za.ac.cput.entity.ReservationStatus;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReservationStatusFactoryTest {
 
-    ReservationStatus reservationStatus = ReservationStatusFactory.build("reserved");
-
     @Test
-    public void ReservationStatusTest(){
-        Assertions.assertEquals(reservationStatus, reservationStatus);
-        Assertions.assertSame(reservationStatus,reservationStatus);
+    public void build(){
+        ReservationStatus reservationStatus = ReservationStatusFactory.build("T323",
+                "Needs payment");
+        System.out.println(reservationStatus);
+        assertNotNull(reservationStatus);
     }
 
     @Test
-    @Disabled
-    public void disableTest(){
-        Assertions.assertEquals(reservationStatus, reservationStatus);
-    }
-
-    @Test
-    @Timeout(value = 1000)
-    public void testTimeout(){
-        Assertions.assertEquals(reservationStatus, reservationStatus);
+    @DisplayName("Test Throwing an IllegalArgumentException for date of reservation description.")
+    public void buildWithError(){
+        Exception exception = assertThrows(IllegalArgumentException.class,() ->
+                ReservationStatusFactory.build("T323", ""));
+        System.out.println("Reservation Description: " +exception.getMessage());
     }
 }

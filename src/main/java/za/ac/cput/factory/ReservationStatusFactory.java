@@ -8,15 +8,17 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.ReservationStatus;
+import za.ac.cput.entity.Reservation;
 import za.ac.cput.util.Helper;
 
 public class ReservationStatusFactory {
 
-    public static ReservationStatus build(String complete){
-        String reservationID = Helper.generateUUID();
+    public static ReservationStatus build(String reservationStatusID, String reservationStatusDescription){
+        reservationStatusID = Helper.generateUUID();
+        Helper.isEmptyOrNull(reservationStatusDescription);
         return new ReservationStatus.Builder()
-                .setReservationID(reservationID)
-                .setComplete(complete)
+                .setReservationStatusID(reservationStatusID)
+                .setReservationStatusDescription(reservationStatusDescription)
                 .build();
     }
 }

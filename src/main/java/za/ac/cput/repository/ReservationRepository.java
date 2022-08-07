@@ -3,57 +3,69 @@
 
  Author: Siyamtanda Tonjeni (217107958)
  Date: 10 April 2022
- */
+
 
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Campus;
 import za.ac.cput.entity.Reservation;
-import za.ac.cput.factory.ReservationFactory;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.HashSet;
-import java.util.Set;
+public class ReservationRepository implements IReservationRepository{
 
-public class ReservationRepository {
-
-    private Set<Reservation> reservationDB;
+    private final List<Reservation> reservationList;
+    private static ReservationRepository reservationRepository;
 
     public ReservationRepository(){
-        this.reservationDB= new HashSet<>();
+        this.reservationList= new ArrayList<>();
     }
 
-    public Reservation create(String userName, String dateOfReservation){
-        Reservation reservation = ReservationFactory.build(userName,dateOfReservation);
-        this.reservationDB.add(reservation);
-        return reservation;
+    public static ReservationRepository getRepository(){
+        if(reservationRepository == null)
+            reservationRepository = new ReservationRepository();
+        return reservationRepository;
     }
+
+    @Override
+    public Reservation create(Reservation reservation){
+        boolean created = reservationList.add(reservation);
+        if(!created)
+            return null;
+        else return reservation;
+    }
+
+    @Override
     public Reservation read(String reservationID){
-        Reservation reservation = null;
-        for(Reservation r : reservationDB){
-            if(r.getReservationID().equalsIgnoreCase(reservationID)){
-                reservation = r;
-                break;
-            }
-        }
+        Reservation reservation = this.reservationList.stream()
+                .filter(g -> g.getReservationID().equals(reservationID))
+                .findAny()
+                .orElse(null);
+
         return reservation;
     }
+
+    @Override
     public Reservation update(Reservation reservation){
         Reservation reservation1 = read(reservation.getReservationID());
         if(reservation1!= null){
-            reservationDB.remove(reservation1);
-            reservationDB.add(reservation1);
+            reservationList.remove(reservation1);
+            reservationList.add(reservation1);
         }
         return reservation1;
     }
-    public Reservation delete(String reservationID){
+
+    @Override
+    public boolean delete(String reservationID){
         Reservation reservation = read(reservationID);
         if(reservationID!=null){
-            this.reservationDB.remove((reservation));
+            this.reservationList.remove((reservation));
         }
-        return null;
+        return true;
     }
 
-    public Set<Reservation> getAll() {
-        return reservationDB;
+    public List<Reservation> getAll() {
+        return reservationList;
     }
 }
+
+ */

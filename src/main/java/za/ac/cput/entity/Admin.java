@@ -17,7 +17,6 @@ public class Admin implements Serializable {
 
     @Id
     private String adminId;
-
     private String firstName;
     private String lastName;
 

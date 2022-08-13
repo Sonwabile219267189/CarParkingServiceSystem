@@ -8,6 +8,8 @@ package za.ac.cput.service;
 
 import za.ac.cput.entity.ParkingSpace;
 
-public interface ParkingSpaceService extends IService<ParkingSpace, String>{
+import java.util.List;
 
+public interface ParkingSpaceService extends IService<ParkingSpace, String>{
+    public List<ParkingSpace> findAll();
 }

@@ -5,7 +5,7 @@
  */
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Department;
+/*import za.ac.cput.entity.Department;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,7 +57,7 @@ public class DepartmentRepository implements IDepartmentRepository{
         Department departmentToDelete = read(departmentId);
         if (departmentToDelete == null)
             return false;
-        departmentDB.remove(departmentToDelete);
+       else departmentDB.remove(departmentToDelete);
         return true;
     }
 
@@ -65,4 +65,4 @@ public class DepartmentRepository implements IDepartmentRepository{
     public Set<Department> getAll(){
         return departmentDB;
     }
-}
+}*/

@@ -7,8 +7,9 @@
 
 package za.ac.cput.factory;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import za.ac.cput.entity.Admin;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AdminFactoryTest {

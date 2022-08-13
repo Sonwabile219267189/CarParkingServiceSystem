@@ -4,14 +4,11 @@
    Date: 08April2022
  */
 package za.ac.cput.repository;
-
 import za.ac.cput.entity.Admin;
 
-import java.util.HashSet;
-import java.util.Set;
 
 
-public class AdminRepository implements IAdminRepository{
+/*public class AdminRepository implements IAdminRepository{
     private static AdminRepository adminRepository = null;
     private Set<Admin> adminDB = null;
 
@@ -68,4 +65,4 @@ public class AdminRepository implements IAdminRepository{
     public Set<Admin> getAll(){
         return adminDB;
     }
-}
+} */

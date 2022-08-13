@@ -6,16 +6,33 @@
 
 package za.ac.cput.entity;
 
-public class Department {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+import java.io.Serializable;
+
+@Entity
+public class Department implements Serializable {
+
+    @Id
+    private String DepartmentId;
+
     private String departmentName;
     private String campusLocation;
-    private String departmentID;
+
+    protected Department() {
+    }
 
     public Department(Department.Builder builder) {
+        this.departmentId = builder.departmentId;
         this.departmentName = builder.departmentName;
         this.campusLocation = builder.campusLocation;
-        this.departmentID = builder.departmentID;
     }
+    public String getDepartmentID() {
+        return departmentId;
+    }
+    
     public String getDepartmentName() {
         return departmentName;
     }
@@ -24,16 +41,12 @@ public class Department {
         return campusLocation;
     }
 
-    public String getDepartmentID() {
-        return departmentID;
-    }
-
     @Override
     public String toString() {
         return "Department{" +
                 "departmentName='" + departmentName + '\'' +
                 ", campusLocation='" + campusLocation + '\'' +
-                ", departmentID='" + departmentID + '\'' +
+                ", departmentID='" + departmentId + '\'' +
                 '}';
     }
 

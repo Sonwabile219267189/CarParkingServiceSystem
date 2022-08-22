@@ -1,12 +1,19 @@
+/* CarParkingServiceSystem.java
+ Service for a Reservation Status Class
+
+ Author: Siyamtanda Tonjeni (217107958)
+ Date: 12 August 2022
+ */
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ReservationStatus;
 import za.ac.cput.repository.IReservationStatusRepository;
 import za.ac.cput.service.ReservationStatusService;
-
 import java.util.List;
 
+@Service
 public class ReservationStatusServiceImpl implements ReservationStatusService {
     @Autowired
     private IReservationStatusRepository repository;

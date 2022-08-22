@@ -15,7 +15,7 @@ public class ReservationFactoryTest {
 
     @Test
     public void build(){
-        Reservation reservation = ReservationFactory.build("L1",
+        Reservation reservation = ReservationFactory.build("T453","L1",
                 "07 May 2022",ReservationStatusFactory.build("T323",
                         "Needs payment"));
         System.out.println(reservation);
@@ -27,7 +27,7 @@ public class ReservationFactoryTest {
     @DisplayName("Test Throwing an IllegalArgumentException for date of reservation.")
     public void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class, () ->
-                ReservationFactory.build("L1","",
+                ReservationFactory.build("T453","L1","",
                         ReservationStatusFactory.build("T323",
                                 "Needs payment")));
         System.out.println("Date of reservation: "+ exception.getMessage());

@@ -6,9 +6,15 @@
  */
 package za.ac.cput.entity;
 
-public class Reservation {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Reservation implements Serializable {
+
     //declaration of private fields
-    private String reservationID;
+    @Id private String reservationID;
     private String parkingSpaceID;
     private String dateOfReservation;
     private ReservationStatus reservationStatus;
@@ -32,8 +38,6 @@ public class Reservation {
                 ", reservationStatus='" + reservationStatus + '\'' +
                 '}';
     }
-
-
 
     public static class Builder{
         private String reservationID;

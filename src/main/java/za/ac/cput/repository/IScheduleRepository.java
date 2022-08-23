@@ -8,8 +8,11 @@ package za.ac.cput.repository;
 
 
 import java.util.List;
-import za.ac.cput.entity.Schedule;
 
-public interface IScheduleRepository extends IRepository<Schedule, String>{
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import za.ac.cput.entity.Schedule;
+@Repository
+public interface IScheduleRepository extends JpaRepository<Schedule, String> {
     public List<Schedule> getAll();
 }

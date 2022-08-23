@@ -5,9 +5,13 @@
  */
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
-
+@Entity
 public class Schedule {
+
+    @Id
     private String userId;
     private String vehicleId;
     private String scheduleId;

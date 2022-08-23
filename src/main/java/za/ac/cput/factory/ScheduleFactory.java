@@ -6,7 +6,7 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Schedule;
-import za.ac.cput.helper.GenerateID;
+import za.ac.cput.util.Helper;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +14,7 @@ public class ScheduleFactory {
 
     public static Schedule createSchedule( LocalDateTime startTime, LocalDateTime endTime)
     {
-        String sch = GenerateID.generateUUID();
+        String sch = Helper.generateUUID();
         Schedule schedule= new Schedule.Builder()
                 .setScheduleId(sch)
                 .setVehicleId(sch)

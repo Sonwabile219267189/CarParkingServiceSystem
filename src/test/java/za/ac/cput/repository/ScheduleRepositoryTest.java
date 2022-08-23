@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class ScheduleRepositoryTest {
-    public static ScheduleRepository scheduleRepository = ScheduleRepository.getRepository();
+    public static IScheduleRepository scheduleRepository;
     Schedule schedule = ScheduleFactory.createSchedule(LocalDateTime.of(2022, 4, 7, 2 ,15 ) ,LocalDateTime.now());
 
 
@@ -29,14 +29,14 @@ class ScheduleRepositoryTest {
 
     @Test
     void b_create() {
-        Schedule created = scheduleRepository.create(schedule);
-        assertNull(created);
+        Schedule created = scheduleRepository.save(schedule);
+        assertNotNull(created);
         System.out.println("Create : " + created);
     }
 
     @Test
     void c_read() {
-        Schedule read = scheduleRepository.read(String.valueOf(schedule));
+        Schedule read = scheduleRepository.save(schedule);
         assertNull(read);
         System.out.println("Read : " + read);
     }
@@ -44,14 +44,15 @@ class ScheduleRepositoryTest {
     @Test
     void d_update() {
         Schedule updated = new Schedule.Builder().copy(schedule).build();
-        assertNull(scheduleRepository.update(updated));
+        assertNull(scheduleRepository.save(updated));
         System.out.println("Update : " + updated);
     }
 
     @Test
     void e_delete() {
-       boolean success = ScheduleRepository.getRepository().delete(schedule.getScheduleID());
-        assertNotNull(success);
-       System.out.println("Delete : " + success);
+        Schedule delete = scheduleRepository.save(schedule);
+
+        scheduleRepository.deleteAll();
+        System.out.println(scheduleRepository.findAll());
     }
 }

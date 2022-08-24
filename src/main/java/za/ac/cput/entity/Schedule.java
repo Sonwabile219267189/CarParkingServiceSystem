@@ -7,9 +7,10 @@ package za.ac.cput.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 @Entity
-public class Schedule {
+public class Schedule implements Serializable {
 
     @Id
     private String userId;

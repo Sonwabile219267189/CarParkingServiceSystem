@@ -3,12 +3,14 @@
    AdminRepository
    Date: 08April2022
  */
-package za.ac.cput.repository;
+/*package za.ac.cput.repository;
 import za.ac.cput.entity.Admin;
+import java.util.Set;
+import java.util.HashSet;
 
 
 
-/*public class AdminRepository implements IAdminRepository{
+public class AdminRepository implements IAdminRepository{
     private static AdminRepository adminRepository = null;
     private Set<Admin> adminDB = null;
 
@@ -32,9 +34,9 @@ import za.ac.cput.entity.Admin;
     }
 
     @Override
-    public Admin read(String adminID){
+    public Admin read(String adminId){
         for (Admin e : adminDB){
-            if (e.getAdminID() == adminID)
+            if (e.getAdminId() == adminId)
                 return e;
         }
         return null;
@@ -42,7 +44,7 @@ import za.ac.cput.entity.Admin;
 
     @Override
     public Admin update(Admin admin){
-        Admin oldAdmin = read(admin.getAdminID());
+        Admin oldAdmin = read(admin.getAdminId());
         if (oldAdmin != null){
             adminDB.remove(oldAdmin);
             adminDB.add(admin);
@@ -52,9 +54,9 @@ import za.ac.cput.entity.Admin;
     }
 
     @Override
-    public boolean delete(String adminID) {
-        Admin adminToDelete = read(adminID);
-        if (adminID == null)
+    public boolean delete(String adminId) {
+        Admin adminToDelete = read(adminId);
+        if (adminId == null)
             return false;
        adminDB.remove(adminToDelete);
         return true;
@@ -65,4 +67,6 @@ import za.ac.cput.entity.Admin;
     public Set<Admin> getAll(){
         return adminDB;
     }
-} */
+}
+
+ */

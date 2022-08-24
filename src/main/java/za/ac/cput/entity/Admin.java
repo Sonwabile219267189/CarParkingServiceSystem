@@ -45,7 +45,7 @@ public class Admin implements Serializable {
     @Override
     public String toString() {
         return "Admin{" +
-                "adminId=" + adminId +
+                "adminId=" + adminId +'\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
@@ -56,7 +56,7 @@ public class Admin implements Serializable {
         private String firstName;
         private String lastName;
 
-        public Builder setAdminID(String adminID) {
+        public Builder setAdminId(String adminId) {
             this.adminId = adminId;
             return this;
         }
@@ -77,6 +77,7 @@ public class Admin implements Serializable {
             this.lastName = admin.lastName;
             return this;
         }
+
 
         public Admin build() {
             return new Admin(this);

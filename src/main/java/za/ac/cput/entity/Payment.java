@@ -5,8 +5,16 @@
  */
 package za.ac.cput.entity;
 
-public class Payment {
-    private String paymentId ;
+
+import za.ac.cput.service.PaymentService;
+
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Payment implements Serializable {
+    @Id  private String paymentId ;
     private  double paymentAmount;
     private String bankNumber;
 
@@ -39,6 +47,10 @@ public class Payment {
 
     public String getPaymentID() {
         return paymentId;
+    }
+
+    public PaymentService orElse(Object o) {
+        return null ;
     }
 
 

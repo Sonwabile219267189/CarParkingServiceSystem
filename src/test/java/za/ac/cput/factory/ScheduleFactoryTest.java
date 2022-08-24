@@ -24,6 +24,7 @@ class ScheduleFactoryTest {
         public void scheduleTest(){
             Assertions.assertEquals(schedule, schedule);
             Assertions.assertSame(schedule,schedule);
+            System.out.println(schedule);
         }
 
         @Test

@@ -21,6 +21,7 @@ class PaymentFactoryTest {
         public void paymentTest(){
             Assertions.assertEquals(payment, payment);
             Assertions.assertSame(payment,payment);
+            System.out.println(payment);
         }
 
         @Test

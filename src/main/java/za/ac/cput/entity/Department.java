@@ -6,16 +6,31 @@
 
 package za.ac.cput.entity;
 
-public class Department {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Department implements Serializable {
+
+    @Id
+    private String departmentId;
     private String departmentName;
     private String campusLocation;
-    private String departmentID;
 
-    public Department(Department.Builder builder) {
+    protected Department() {
+    }
+
+    private Department(Builder builder) {
+        this.departmentId = builder.departmentId;
         this.departmentName = builder.departmentName;
         this.campusLocation = builder.campusLocation;
-        this.departmentID = builder.departmentID;
     }
+
+    public String getDepartmentId() {
+        return departmentId;
+    }
+
     public String getDepartmentName() {
         return departmentName;
     }
@@ -24,47 +39,42 @@ public class Department {
         return campusLocation;
     }
 
-    public String getDepartmentID() {
-        return departmentID;
-    }
-
     @Override
     public String toString() {
         return "Department{" +
-                "departmentName='" + departmentName + '\'' +
+                "departmentId=" + departmentId + '\'' +
+                ", departmentName='" + departmentName + '\'' +
                 ", campusLocation='" + campusLocation + '\'' +
-                ", departmentID='" + departmentID + '\'' +
                 '}';
     }
 
-    public boolean getDepartmentId() {
-        return false;
-    }
-
     public static class Builder {
+        private String departmentId;
         private String departmentName;
         private String campusLocation;
-        private String departmentID;
 
-        public Department.Builder setDepartmentName(String departmentName) {
+
+        public Builder setDepartmentId(String departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+        public Builder setDepartmentName(String departmentName) {
             this.departmentName = departmentName;
             return this;
         }
 
-        public Department.Builder setCampusLocation(String campusLocation) {
+        public Builder setCampusLocation(String campusLocation) {
             this.campusLocation = campusLocation;
             return this;
+
         }
 
-        public Department.Builder setDepartmentID(String departmentID) {
-            this.departmentID= departmentID;
-            return this;
-        }
-
-        public Department.Builder copy(Department department) {
+        public Builder copy(Department department) {
+            this.departmentId = department.departmentId;
             this.departmentName = department.departmentName;
             this.campusLocation = department.campusLocation;
-            this.departmentID = department.departmentID;
+
             return this;
         }
 
@@ -73,5 +83,7 @@ public class Department {
         }
     }
 }
+
+
 
 

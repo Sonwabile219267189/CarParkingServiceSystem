@@ -10,10 +10,10 @@ import za.ac.cput.entity.Department;
 
 public class DepartmentFactory {
 
-    public static Department createDepartment(String departmentName, String campusLocation, String departmentID) {
-        return new Department.Builder().setDepartmentName(departmentName)
+    public static Department createDepartment(String departmentId, String departmentName, String campusLocation ) {
+        return new Department.Builder().setDepartmentId(departmentId)
+                .setDepartmentName(departmentName)
                 .setCampusLocation(campusLocation)
-                .setDepartmentID(departmentID)
                 .build();
 
     }

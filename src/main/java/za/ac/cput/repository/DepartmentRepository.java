@@ -43,7 +43,7 @@ public class DepartmentRepository implements IDepartmentRepository{
 
     @Override
     public Department update(Department department){
-        Department oldDepartment = read(department.getDepartmentID());
+        Department oldDepartment = read(department.getDepartmentId());
         if (oldDepartment != null){
             departmentDB.remove(oldDepartment);
             departmentDB.add(department);

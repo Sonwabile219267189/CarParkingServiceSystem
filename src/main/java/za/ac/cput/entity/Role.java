@@ -6,7 +6,13 @@ package za.ac.cput.entity;
   Date: 07 April 2022
  */
 
-public class Role {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+public class Role implements Serializable {
+    @Id
     private String roleId;
     private String roleName;
 

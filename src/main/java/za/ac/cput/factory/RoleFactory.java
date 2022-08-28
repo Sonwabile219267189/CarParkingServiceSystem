@@ -15,9 +15,9 @@ public class RoleFactory {
 
         Helper.isEmptyOrNull(roleName);
 
-        String id= Helper.generateUUID();
+        String roleId= Helper.generateUUID();
 
-        Role role= new Role.Builder().setRoleId(id)
+        Role role= new Role.Builder().setRoleId(roleId)
                 .setRoleName(roleName)
                 .build();
         return role;

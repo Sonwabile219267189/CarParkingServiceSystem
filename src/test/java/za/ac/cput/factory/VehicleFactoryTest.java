@@ -8,6 +8,7 @@ package za.ac.cput.factory;
  */
 
 import org.junit.jupiter.api.Test;
+import za.ac.cput.entity.User;
 import za.ac.cput.entity.Vehicle;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +17,9 @@ class VehicleFactoryTest {
     @Test
     //successful test with correct input
     public void createVehicle(){
-        Vehicle vehicle= VehicleFactory.createVehicle("CF234246",  "Ford eco-sport, SUV","Diamond white");
+        User user=UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
+                "0734561234","aboshT2@gmail.com");
+        Vehicle vehicle= VehicleFactory.createVehicle("CF234246",user.getUserID() ,"Ford eco-sport, SUV","Diamond white");
         assertNotNull(vehicle);
         System.out.println(vehicle);
 
@@ -25,8 +28,10 @@ class VehicleFactoryTest {
     @Test
         //Incorrect string input to test the isEmptyOrNull method
     void CreateVehicleWithAnError(){
+        User user=UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
+                "0734561234","aboshT2@gmail.com");
         Exception exception=assertThrows(IllegalArgumentException.class, ()->
-                VehicleFactory.createVehicle("","Ford eco-sport, SUV","Diamond white"));
+                VehicleFactory.createVehicle("", user.getUserID() ,"Ford eco-sport, SUV","Diamond white"));
         System.out.println( exception.getMessage()+": vehicleNumberplate");
 
     }

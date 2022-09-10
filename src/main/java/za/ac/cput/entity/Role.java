@@ -17,7 +17,7 @@ public class Role implements Serializable {
     private String roleName;
 
     //**
-    private Role(){
+    public Role(){
     }
 
 

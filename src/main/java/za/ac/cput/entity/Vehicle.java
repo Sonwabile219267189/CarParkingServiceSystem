@@ -9,7 +9,7 @@ package za.ac.cput.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Objects;
+
 @Entity
 public class Vehicle implements Serializable {
     @Id
@@ -19,8 +19,9 @@ public class Vehicle implements Serializable {
     private String vehicleColour;
 
     //
-    private Vehicle(){
+    public Vehicle(){
     }
+
 
 
     //

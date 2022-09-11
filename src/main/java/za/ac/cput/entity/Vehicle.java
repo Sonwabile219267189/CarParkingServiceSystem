@@ -6,24 +6,28 @@ package za.ac.cput.entity;
   Date: 07 April 2022
  */
 
-import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-public class Vehicle {
-
+@Entity
+public class Vehicle implements Serializable {
+    @Id
     private String vehicleNumberPlate;
-    private String userId;
+    private String userID;
     private String vehicleModel;
     private String vehicleColour;
 
     //
-    private Vehicle(){
+    public Vehicle(){
     }
+
 
 
     //
     private Vehicle(Builder builder){
         this.vehicleNumberPlate=builder.vehicleNumberPlate;
-        this.userId=builder.userId;
+        this.userID=builder.userID;
         this.vehicleModel=builder.vehicleModel;
         this.vehicleColour=builder.vehicleColour;
 
@@ -34,8 +38,8 @@ public class Vehicle {
         return vehicleNumberPlate;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserID() {
+        return userID;
     }
 
     public String getVehicleModel() {
@@ -49,7 +53,7 @@ public class Vehicle {
     //
     public static class Builder{
         private String vehicleNumberPlate;
-        private String userId;
+        private String userID;
         private String vehicleModel;
         private String vehicleColour;
 
@@ -59,8 +63,8 @@ public class Vehicle {
             return this;
         }
 
-        public Builder setUserId(String userId){
-            this.userId=userId;
+        public Builder setUserID(String userID){
+            this.userID=userID;
             return this;
         }
 
@@ -81,7 +85,7 @@ public class Vehicle {
 
         public Builder copy(Vehicle vehicle){
             this.vehicleNumberPlate=vehicle.vehicleNumberPlate;
-            this.userId=vehicle.userId;
+            this.userID=vehicle.userID;
             this.vehicleModel=vehicle.vehicleModel;
             this.vehicleColour=vehicle.vehicleColour;
             return this;
@@ -92,7 +96,7 @@ public class Vehicle {
     public String toString() {
         return "Vehicle{" +
                 "vehicleNumberPlate='" + vehicleNumberPlate + '\'' +
-                ", userId='" + userId + '\'' +
+                ", userID='" + userID + '\'' +
                 ", vehicleModel='" + vehicleModel + '\'' +
                 ", vehicleColour='" + vehicleColour + '\'' +
                 '}';

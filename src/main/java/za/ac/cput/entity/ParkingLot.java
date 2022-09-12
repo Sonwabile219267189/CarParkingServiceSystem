@@ -14,14 +14,12 @@ import java.io.Serializable;
 public class ParkingLot implements Serializable {
     @Id private String parkingLotID;
     private String campusName;
-    //private String parkingLotName;
+
     private String parkingLotNumber;
 
     protected ParkingLot(){}
 
-//    public String getParkingLotName() {
-//        return parkingLotName;
-//    }
+
 
     public String getParkingLotNumber() {
         return parkingLotNumber;
@@ -36,7 +34,7 @@ public class ParkingLot implements Serializable {
     private ParkingLot(Builder builder){
         this.parkingLotID = builder.parkingLotID;
         this.campusName = builder.campusName;
-        //this.parkingLotName = builder.parkingLotName;
+
         this.parkingLotNumber = builder.parkingLotNumber;
 
     }
@@ -55,7 +53,7 @@ public class ParkingLot implements Serializable {
     public static class Builder{
         private String parkingLotID;
         private String campusName;
-        //private String parkingLotName;
+
         private String parkingLotNumber;
 
         public Builder setParkingLotID(String parkingLotID){
@@ -68,10 +66,7 @@ public class ParkingLot implements Serializable {
             return this;
         }
 
-//        public Builder setParkingLotName(String parkingLotName){
-//            this.parkingLotName = parkingLotName;
-//            return this;
-//        }
+
 
         public Builder setParkingLotNumber(String parkingLotNumber){
             this.parkingLotNumber = parkingLotNumber;
@@ -81,7 +76,7 @@ public class ParkingLot implements Serializable {
         public Builder copy(ParkingLot parkingLot){
             this.parkingLotID = parkingLot.parkingLotID;
             this.campusName = parkingLot.campusName;
-            //this.parkingLotName = parkingLot.parkingLotName;
+
             this.parkingLotNumber = parkingLot.parkingLotNumber;
             return this;
 

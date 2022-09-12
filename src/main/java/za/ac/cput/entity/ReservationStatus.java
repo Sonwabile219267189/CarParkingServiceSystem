@@ -18,6 +18,8 @@ public class ReservationStatus implements Serializable {
     @Id private String reservationStatusID;
     private String reservationStatusDescription;
 
+    //protected constructor
+    public ReservationStatus(){ }
 
     //Creating a builder pattern for Subject
     public ReservationStatus(Builder builder) {

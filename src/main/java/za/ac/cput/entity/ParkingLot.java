@@ -17,7 +17,7 @@ public class ParkingLot implements Serializable {
     //private String parkingLotName;
     private String parkingLotNumber;
 
-    public ParkingLot(){}
+    protected ParkingLot(){}
 
 //    public String getParkingLotName() {
 //        return parkingLotName;

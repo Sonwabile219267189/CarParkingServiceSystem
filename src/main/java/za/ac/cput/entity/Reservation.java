@@ -19,7 +19,8 @@ public class Reservation implements Serializable {
     private String dateOfReservation;
     private ReservationStatus reservationStatus;
 
-
+    //protected constructor
+    public Reservation(){ }
 
     //Creating a builder pattern for Subject
     public Reservation(Builder builder) {

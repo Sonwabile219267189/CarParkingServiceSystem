@@ -19,6 +19,7 @@ public class Schedule implements Serializable {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
+    protected Schedule(){}
 
     public void setUserId(String userId) {
         this.userId = userId;

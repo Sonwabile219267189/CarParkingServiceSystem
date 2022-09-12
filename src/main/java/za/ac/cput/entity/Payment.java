@@ -6,7 +6,7 @@
 package za.ac.cput.entity;
 
 
-import za.ac.cput.service.PaymentService;
+//import za.ac.cput.service.PaymentService;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -17,6 +17,8 @@ public class Payment implements Serializable {
     @Id  private String paymentId ;
     private  double paymentAmount;
     private String bankNumber;
+
+    protected Payment(){}
 
     private Payment(Builder builder)
     {
@@ -49,9 +51,9 @@ public class Payment implements Serializable {
         return paymentId;
     }
 
-    public PaymentService orElse(Object o) {
-        return null ;
-    }
+//    public PaymentService orElse(Object o) {
+//        return null ;
+//    }
 
 
     public static class Builder {

@@ -1,14 +1,19 @@
 package za.ac.cput.entity;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
 /**
   * Name: Abongile Tshopi
   * Student Number: 214254151
   * UserRole entity
   */
-public class UserRole {
+@Entity
+public class UserRole implements Serializable {
 
-    private String userID;
+    @Id private String userID;
     private String roleID;
 
     public UserRole() {

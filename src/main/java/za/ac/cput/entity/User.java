@@ -1,19 +1,24 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+
 /**
  * Entity for the User
  * Author: Abongile Tshopi (214254151)
  * Date: 09 April 2022
  */
-
-public class User {
-    private String userID;
+@Entity
+public class User implements Serializable {
+    @Id private String userID;
     private String firstName;
     private String lastName;
     private String address;
     private String cellNumber;
     private String emailAddress;
 
+    protected User(){}
     //getters
     public String getUserID() {
         return userID;

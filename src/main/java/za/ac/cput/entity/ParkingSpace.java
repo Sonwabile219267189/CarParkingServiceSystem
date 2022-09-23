@@ -18,7 +18,7 @@ public class ParkingSpace implements Serializable {
     private String parkingLotID;
     private boolean isEmpty;
 
-    public ParkingSpace(){}
+    protected ParkingSpace(){}
 
     public String getParkingSpaceID(){
         return parkingSpaceID;

@@ -12,9 +12,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Payment;
-import za.ac.cput.service.PaymentService;
+//import za.ac.cput.service.PaymentService;
 @Repository
 public interface IPaymentRepository extends JpaRepository<Payment, String> {
 
-    String getAll();
+//    String getAll();
 }

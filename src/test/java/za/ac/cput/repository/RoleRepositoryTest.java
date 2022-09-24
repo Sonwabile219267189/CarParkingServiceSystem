@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RoleRepositoryTest{
 
     @Autowired
-    private static RoleRepository repository;
+    private RoleRepository repository;
     private static Role role= RoleFactory.createRole("Student");
 
 
@@ -53,11 +53,11 @@ public class RoleRepositoryTest{
     @Test
     void a_delete() {
         Role saved = repository.save(role);
-        Set<Role> roleDB=repository.getAll();
+        List<Role> roleDB=repository.findAll();
         assertEquals(1,roleDB.size());
         repository.delete(saved);
         System.out.println("Roles on the list "+'\n'+roleDB);
-        roleDB= repository.getAll();
+        roleDB= repository.findAll();
         assertEquals(0,roleDB.size());
     }
 
@@ -66,6 +66,6 @@ public class RoleRepositoryTest{
     @Test
     void d_findAll() {
         System.out.print("display all roles: ");
-        System.out.println(repository.getAll());
+        System.out.println(repository.findAll());
     }
 }

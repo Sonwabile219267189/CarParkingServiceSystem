@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ReservationStatusRepositoryTest {
 
     @Autowired
-    private static IReservationStatusRepository reservationStatusRepository;
+    private IReservationStatusRepository reservationStatusRepository;
     private ReservationStatus reservationStatus = ReservationStatusFactory.build("T4355",
             "reserved");
 

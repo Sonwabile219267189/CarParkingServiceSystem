@@ -9,13 +9,14 @@ package za.ac.cput.service.impl;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.User;
 import za.ac.cput.entity.Vehicle;
 import za.ac.cput.factory.UserFactory;
 import za.ac.cput.factory.VehicleFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
 class VehicleServiceImplTest {
     @Autowired
     private VehicleServiceImpl service;

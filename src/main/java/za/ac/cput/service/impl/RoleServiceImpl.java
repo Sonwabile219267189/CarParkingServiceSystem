@@ -18,10 +18,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-    private static RoleServiceImpl service = null;
+//    private static RoleServiceImpl service = null;
 
     @Autowired
     private RoleRepository repository;
+
+    public RoleServiceImpl(RoleRepository repository){this.repository = repository;}
 
     @Override
     public Role create(Role role) {

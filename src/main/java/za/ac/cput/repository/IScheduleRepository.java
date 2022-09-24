@@ -14,5 +14,5 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Schedule;
 @Repository
 public interface IScheduleRepository extends JpaRepository<Schedule, String> {
-    public List<Schedule> getAll();
+//    public List<Schedule> getAll();
 }

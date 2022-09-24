@@ -15,6 +15,6 @@ import za.ac.cput.repository.IRepository;
 
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, String> {
-    public List<Vehicle> getAll();
+//    public List<Vehicle> getAll();
 
 }

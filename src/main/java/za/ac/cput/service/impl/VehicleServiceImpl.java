@@ -49,7 +49,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public List<Vehicle> getAll(){
-        return this.repository.getAll();
+        return this.repository.findAll();
     }
 
 }

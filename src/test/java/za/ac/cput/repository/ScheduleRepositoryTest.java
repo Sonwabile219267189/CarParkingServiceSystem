@@ -8,23 +8,26 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.Schedule;
 import za.ac.cput.factory.ScheduleFactory;
 
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class ScheduleRepositoryTest {
-    public static IScheduleRepository scheduleRepository;
+    @Autowired
+    private IScheduleRepository scheduleRepository;
     Schedule schedule = ScheduleFactory.createSchedule(LocalDateTime.of(2022, 4, 7, 2 ,15 ) ,LocalDateTime.now());
 
 
     @Test
     void a_getAll() {
         System.out.println("Show all : ");
-        System.out.println(scheduleRepository.getAll());
+        System.out.println(scheduleRepository.findAll());
     }
 
     @Test

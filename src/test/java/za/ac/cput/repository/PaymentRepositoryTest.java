@@ -8,6 +8,7 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.Payment;
 import za.ac.cput.factory.PaymentFactory;
@@ -19,13 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
 @SpringBootTest
 class PaymentRepositoryTest {
-     public static IPaymentRepository paymentRepository ;
+    @Autowired
+     private IPaymentRepository paymentRepository ;
       Payment payment = PaymentFactory.createPayment(50.78 , "245016444");
 
     @Test
     void a_getAll() {
         System.out.println("Show all :  " +payment);
-        System.out.println(paymentRepository.getAll());
+        System.out.println(paymentRepository.findAll());
     }
 
     @Test

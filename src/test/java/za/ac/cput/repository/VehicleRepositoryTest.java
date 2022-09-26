@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.*;
  class VehicleRepositoryTest {
 
    @Autowired
-   private static VehicleRepository repository;
+   private VehicleRepository repository;
    private static User user=UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
             "0734561234","aboshT2@gmail.com");
    private static Vehicle vehicle= VehicleFactory.createVehicle("CF234246",user.getUserID(),"Ford ecosport, SUV","Diamond white");
@@ -57,11 +57,11 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void a_delete() {
         Vehicle saved = repository.save(vehicle);
-        List<Vehicle> vehicleDB=repository.getAll();
+        List<Vehicle> vehicleDB=repository.findAll();
         assertEquals(1,vehicleDB.size());
         repository.delete(saved);
         System.out.println("Vehicles on the list "+'\n'+vehicleDB);
-        vehicleDB= repository.getAll();
+        vehicleDB= repository.findAll();
         assertEquals(0,vehicleDB.size());
     }
 
@@ -70,7 +70,7 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void d_findAll() {
         System.out.println("List all vehicles");
-        System.out.println(repository.getAll());
+        System.out.println(repository.findAll());
     }
 
 

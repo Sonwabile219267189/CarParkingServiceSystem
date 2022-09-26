@@ -26,7 +26,7 @@ package za.ac.cput.repository;
 public class ReservationRepositoryTest {
 
     @Autowired
-    private static IReservationRepository reservationRepository;
+    private IReservationRepository reservationRepository;
 
     private Reservation reservation = ReservationFactory.build("T726",
             "L2", "08 Sept 2022", ReservationStatusFactory.build(

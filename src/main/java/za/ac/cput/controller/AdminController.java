@@ -15,7 +15,7 @@ public class AdminController {
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public Admin create(@RequestBody Admin admin){
-        Admin newAdmin = AdminFactory.createAdmin(admin.getAdminId(),admin.getFirstName(), admin.getLastName());
+        Admin newAdmin = AdminFactory.build(admin.getAdminId(),admin.getFirstName(), admin.getLastName());
         return adminService.create(newAdmin);
 
     }

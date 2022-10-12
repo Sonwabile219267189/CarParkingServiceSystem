@@ -9,7 +9,7 @@ import za.ac.cput.entity.Admin;
 
 public class AdminFactory {
 
-    public static Admin createAdmin(String adminId, String firstName, String lastName){
+    public static Admin build(String adminId, String firstName, String lastName){
         return new Admin.Builder().setAdminId(adminId)
                 .setFirstName(firstName)
                 .setLastName(lastName)

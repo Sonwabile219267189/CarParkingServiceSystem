@@ -14,7 +14,7 @@ public class DepartmentController {
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public Department create(@RequestBody Department department) {
-        Department newDepartment = DepartmentFactory.createDepartment(department.getDepartmentId(), department.getDepartmentName(), department.getCampusLocation());
+        Department newDepartment = DepartmentFactory.build(department.getDepartmentId(), department.getDepartmentName(), department.getCampusLocation());
         return departmentService.create(newDepartment);
 
     }

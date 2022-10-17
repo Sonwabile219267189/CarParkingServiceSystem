@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-//    private static RoleServiceImpl service = null;
+
 
     @Autowired
     private RoleRepository repository;
@@ -53,6 +53,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Set<Role> getAll(){
+
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 }

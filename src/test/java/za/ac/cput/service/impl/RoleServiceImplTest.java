@@ -27,7 +27,7 @@ class RoleServiceImplTest {
     @Test
     void a_create(){
         Role created= service.create(role);
-        //assetNotNull(created);
+        assertNotNull(created);
         assertEquals(created.getRoleId(),role.getRoleId());
         System.out.println("Create: "+created);
     }
@@ -42,10 +42,14 @@ class RoleServiceImplTest {
 
     @Test
     void c_update(){
-        Role oldRole =service.read(role.getRoleId());//insert id
+        Role oldRole =service.read(role.getRoleId());
         Role updated=new Role.Builder().copy(oldRole).setRoleName("Staff").build();
-        assertNotNull(service.update(updated));
-        System.out.println("Delete: "+ updated);
+        assertNotNull(updated);
+        System.out.println("Updated : "+ updated);
+
+//        Role oldRole=service.update(role);
+//        Role updated=new Role.Builder().copy(oldRole).setRoleName("Staff").build();
+//        System.out.println("Updated : "+ updated);
     }
 
     @Test
@@ -57,7 +61,7 @@ class RoleServiceImplTest {
     }
 
     @Test
-    //@Disabled
+
     void d_getAll(){
         System.out.println("Show all: ");
         System.out.println(service.getAll());

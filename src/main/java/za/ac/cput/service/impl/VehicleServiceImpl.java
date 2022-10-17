@@ -11,15 +11,19 @@ import za.ac.cput.entity.Vehicle;
 import za.ac.cput.repository.VehicleRepository;
 import za.ac.cput.service.VehicleService;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 @Service
 public class VehicleServiceImpl implements VehicleService {
-    private static VehicleServiceImpl service = null;
 
     @Autowired
     private VehicleRepository repository;
+
+    public VehicleServiceImpl(VehicleRepository repository){
+        this.repository=repository;
+    }
 
     @Override
     public Vehicle create(Vehicle vehicle) {
@@ -27,13 +31,15 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public Vehicle read(String vehicleNumberPlate) {
+    public Vehicle read(String vehicleNumberPlate)
+    {
         return this.repository.findById(vehicleNumberPlate).orElse(null);
     }
 
     @Override
     public Vehicle update(Vehicle vehicle) {
         if (this.repository.existsById(vehicle.getVehicleNumberPlate()))
+      //  if (this.repository.existsById(vehicle.getUserID()))
             return this.repository.save(vehicle);
         return null;
     }
@@ -50,6 +56,21 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public List<Vehicle> getAll(){
         return this.repository.findAll();
+    }
+
+    @Override
+    public List<Vehicle> getVehicleGivenUserId(String userID) {
+     // return this.repository.getVehicleGivenUserId(userID);
+        List<Vehicle> vehiclesGivenUserId= new ArrayList<>();
+        List<Vehicle> vehicles=getAll();
+
+                for(Vehicle vehicle: vehicles){
+                    if (vehicle.getUserID().equals(userID)) {
+                        vehiclesGivenUserId.add(vehicle);
+                        System.out.println(vehicle.getVehicleNumberPlate());
+                    }
+                }
+               return vehiclesGivenUserId;
     }
 
 }

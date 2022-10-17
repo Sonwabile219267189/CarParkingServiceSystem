@@ -12,5 +12,5 @@ import java.util.List;
 
 public interface VehicleService extends IService<Vehicle,String>{
     public List<Vehicle> getAll();
-
+    public List<Vehicle> getVehicleGivenUserId(String userID);
 }

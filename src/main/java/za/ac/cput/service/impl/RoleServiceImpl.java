@@ -11,6 +11,7 @@ import za.ac.cput.entity.Role;
 import za.ac.cput.repository.RoleRepository;
 import za.ac.cput.service.RoleService;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,6 +33,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public  Role read(String roleId) {
+
         return this.repository.findById(roleId).orElse(null);
     }
 
@@ -52,8 +54,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Set<Role> getAll(){
-
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+    public List<Role> getAll(){
+        return this.repository.findAll();
     }
 }

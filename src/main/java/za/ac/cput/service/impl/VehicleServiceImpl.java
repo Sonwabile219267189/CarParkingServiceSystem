@@ -18,10 +18,11 @@ import java.util.List;
 @Service
 public class VehicleServiceImpl implements VehicleService {
 
-    @Autowired
+   @Autowired
     private VehicleRepository repository;
 
-    public VehicleServiceImpl(VehicleRepository repository){
+    @Autowired
+     VehicleServiceImpl(VehicleRepository repository){
         this.repository=repository;
     }
 
@@ -39,9 +40,12 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     public Vehicle update(Vehicle vehicle) {
         if (this.repository.existsById(vehicle.getVehicleNumberPlate()))
-      //  if (this.repository.existsById(vehicle.getUserID()))
             return this.repository.save(vehicle);
         return null;
+
+//         if (this.repository.existsById(vehicle.getUserID()))
+//        return this.repository.save(vehicle);
+//        return null;
     }
 
     @Override
@@ -58,19 +62,25 @@ public class VehicleServiceImpl implements VehicleService {
         return this.repository.findAll();
     }
 
+//
+//    @Override
+//    public Vehicle findVehicleGivenUserId(String userID){
+//       return this.repository.findVehicleGivenUserId(userID);
+//    }
+
     @Override
-    public List<Vehicle> getVehicleGivenUserId(String userID) {
-     // return this.repository.getVehicleGivenUserId(userID);
-        List<Vehicle> vehiclesGivenUserId= new ArrayList<>();
-        List<Vehicle> vehicles=getAll();
+    public List<Vehicle> findVehiclesGivenUserId(String userID) {
 
-                for(Vehicle vehicle: vehicles){
-                    if (vehicle.getUserID().equals(userID)) {
-                        vehiclesGivenUserId.add(vehicle);
-                        System.out.println(vehicle.getVehicleNumberPlate());
-                    }
-                }
-               return vehiclesGivenUserId;
+        List<Vehicle> vehiclesGivenUserId = new ArrayList<>();
+        List<Vehicle> vehicles = getAll();
+
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getUserID().equals(userID)) {
+                vehiclesGivenUserId.add(vehicle);
+                System.out.println(vehicle.getVehicleNumberPlate());
+            }
+        }
+        return vehiclesGivenUserId;
+//    }
     }
-
 }

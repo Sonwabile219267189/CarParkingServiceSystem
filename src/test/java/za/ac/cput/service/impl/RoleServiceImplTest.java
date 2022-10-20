@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.entity.ParkingLot;
 import za.ac.cput.entity.Role;
 import za.ac.cput.factory.RoleFactory;
 
@@ -22,42 +23,47 @@ class RoleServiceImplTest {
     @Autowired
     private RoleServiceImpl service;
 
-    private static Role role = RoleFactory.createRole("Student");
+    private static Role role1 = RoleFactory.createRole("Student");
+    private static Role role2 = RoleFactory.createRole("Lecturer");
 
     @Test
     void a_create(){
-        Role created= service.create(role);
-        //assetNotNull(created);
-        assertEquals(created.getRoleId(),role.getRoleId());
-        System.out.println("Create: "+created);
+        Role created1= service.create(role1);
+        assertNotNull(created1);
+        assertEquals(created1.getRoleId(),role1.getRoleId());
+        System.out.println("Create: "+created1);
+
+        Role created2= service.create(role2);
+        assertNotNull(created2);
+        assertEquals(created2.getRoleId(),role2.getRoleId());
+        System.out.println("Create: "+created2);
     }
 
     @Test
     void b_read(){
-        Role read =service.read(role.getRoleId());
+        Role read =service.read(role1.getRoleId());
         assertNotNull(read);
-        assertEquals(read.getRoleId(),role.getRoleId());
+        assertEquals(read.getRoleId(),role1.getRoleId());
         System.out.println("Read: "+read);
     }
 
     @Test
     void c_update(){
-        Role oldRole =service.read(role.getRoleId());//insert id
-        Role updated=new Role.Builder().copy(oldRole).setRoleName("Staff").build();
-        assertNotNull(service.update(updated));
-        System.out.println("Delete: "+ updated);
+        Role oldRole =service.read(role1.getRoleId());
+        Role updated= this.service.update(new Role.Builder().copy(oldRole).setRoleName("lecturer").build());
+        assertNotNull(updated);
+        System.out.println("Updated : "+ updated);
+
     }
 
     @Test
-    ///@Disabled
     void e_delete(){
-        boolean success=service.delete(role.getRoleId());
+        boolean success=service.delete(role1.getRoleId());
         assertTrue(success);
         System.out.println("delete: "+ success);
     }
 
     @Test
-    //@Disabled
     void d_getAll(){
         System.out.println("Show all: ");
         System.out.println(service.getAll());

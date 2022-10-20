@@ -11,15 +11,20 @@ import za.ac.cput.entity.Vehicle;
 import za.ac.cput.repository.VehicleRepository;
 import za.ac.cput.service.VehicleService;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 @Service
 public class VehicleServiceImpl implements VehicleService {
-    private static VehicleServiceImpl service = null;
+
+   @Autowired
+    private VehicleRepository repository;
 
     @Autowired
-    private VehicleRepository repository;
+     VehicleServiceImpl(VehicleRepository repository){
+        this.repository=repository;
+    }
 
     @Override
     public Vehicle create(Vehicle vehicle) {
@@ -27,7 +32,8 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public Vehicle read(String vehicleNumberPlate) {
+    public Vehicle read(String vehicleNumberPlate)
+    {
         return this.repository.findById(vehicleNumberPlate).orElse(null);
     }
 
@@ -36,6 +42,10 @@ public class VehicleServiceImpl implements VehicleService {
         if (this.repository.existsById(vehicle.getVehicleNumberPlate()))
             return this.repository.save(vehicle);
         return null;
+
+//         if (this.repository.existsById(vehicle.getUserID()))
+//        return this.repository.save(vehicle);
+//        return null;
     }
 
     @Override
@@ -52,4 +62,25 @@ public class VehicleServiceImpl implements VehicleService {
         return this.repository.findAll();
     }
 
+//
+//    @Override
+//    public Vehicle findVehicleGivenUserId(String userID){
+//       return this.repository.findVehicleGivenUserId(userID);
+//    }
+
+    @Override
+    public List<Vehicle> findVehiclesGivenUserId(String userID) {
+
+        List<Vehicle> vehiclesGivenUserId = new ArrayList<>();
+        List<Vehicle> vehicles = getAll();
+
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getUserID().equals(userID)) {
+                vehiclesGivenUserId.add(vehicle);
+                System.out.println(vehicle.getVehicleNumberPlate());
+            }
+        }
+        return vehiclesGivenUserId;
+//    }
+    }
 }

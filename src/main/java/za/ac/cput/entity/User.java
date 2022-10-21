@@ -11,7 +11,8 @@ import java.io.Serializable;
  */
 @Entity
 public class User implements Serializable {
-    @Id private String userID;
+    @Id
+    private String userID;
     private String firstName;
     private String lastName;
     private String address;

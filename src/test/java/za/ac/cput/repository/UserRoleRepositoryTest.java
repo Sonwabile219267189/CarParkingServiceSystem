@@ -7,14 +7,19 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.entity.User;
 import za.ac.cput.entity.UserRole;
 import za.ac.cput.factory.UserFactory;
 import za.ac.cput.factory.UserRoleFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UserRoleRepositoryTest {
+
+    @Autowired
     private static UserRoleRepository repository = UserRoleRepository.getRepository();
     private static UserRole userR0 = UserRoleFactory.build();
 

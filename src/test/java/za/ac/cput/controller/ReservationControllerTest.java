@@ -37,7 +37,7 @@ public class ReservationControllerTest {
     private Reservation reservation = ReservationFactory.build("T324","L2"
             ,"23 August 2022", ReservationStatusFactory.build("Y253",
                     "Need payment"));
-    private final String baseUrl = "http://localhost:" + this.port + "/cput/reservation/";
+    private final String baseUrl = "http://localhost:3306" + this.port + "/cput/reservation/";
 
     @Test
     void create(){

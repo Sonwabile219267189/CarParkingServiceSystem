@@ -13,7 +13,8 @@ import java.io.Serializable;
 @Entity
 public class UserRole implements Serializable {
 
-    @Id private String userID;
+    @Id
+    private String userID;
     private String roleID;
 
     public UserRole() {

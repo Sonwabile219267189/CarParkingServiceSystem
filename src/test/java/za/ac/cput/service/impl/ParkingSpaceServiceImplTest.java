@@ -28,14 +28,21 @@ class ParkingSpaceServiceImplTest {
     @Autowired private ParkingSpaceServiceImpl service;
 
     private static ParkingLot pl = ParkingLotFactory.build("District 6", "2");
-    private static ParkingSpace pk = ParkingSpaceFactory.build("1",pl.getParkingLotID(),false);
-
+    private static ParkingSpace pk = ParkingSpaceFactory.build("1",pl.getParkingLotID(),true);
+    private static ParkingSpace pk1 = ParkingSpaceFactory.build("2",pl.getParkingLotID(),true);
+    private static ParkingSpace pk2 = ParkingSpaceFactory.build("3",pl.getParkingLotID(),true);
+    private static ParkingSpace pk3 = ParkingSpaceFactory.build("4",pl.getParkingLotID(),true);
+    private static ParkingSpace pk4 = ParkingSpaceFactory.build("5",pl.getParkingLotID(),true);
 
 
     @BeforeAll
     @Test
     void create(){
         ParkingSpace create = this.service.create(pk);
+        ParkingSpace create1 = this.service.create(pk1);
+        ParkingSpace create2 = this.service.create(pk2);
+        ParkingSpace create3 = this.service.create(pk3);
+        ParkingSpace create4 = this.service.create(pk4);
         assertNotNull(create);
         System.out.println(create);
     }
@@ -53,25 +60,35 @@ class ParkingSpaceServiceImplTest {
     @Order(3)
     void update(){
         //ParkingSpace create = this.service.create(pk);
-        ParkingSpace update = this.service.update(new ParkingSpace.Builder().copy(pk).setIsEmpty(true).build());
+        ParkingSpace update = this.service.update(new ParkingSpace.Builder().copy(pk).setIsEmpty(false).build());
         assertNotNull(update);
         System.out.println(update);
 
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     void delete(){
         boolean delete = this.service.delete(pk.getParkingSpaceID());
         assertTrue(delete);
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void findAll(){
         List<ParkingSpace> findAll = this.service.findAll();
         assertNotNull(findAll);
         System.out.println(findAll);
     }
+
+    @Test
+    @Order(4)
+    void bookEmptySpaceIfEmpty(){
+        System.out.println("Before: " + pk1.toString());
+        ParkingSpace bookEmptySpace = this.service.bookEmptySpaceIfEmpty(pk1.getParkingSpaceID());
+        System.out.println("After: " + bookEmptySpace);
+        assertNotNull(bookEmptySpace);
+    }
+
 
 }

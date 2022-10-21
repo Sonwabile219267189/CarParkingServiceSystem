@@ -9,10 +9,12 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.ParkingSpace;
+import za.ac.cput.factory.ParkingSpaceFactory;
 import za.ac.cput.repository.ParkingSpaceRepository;
 import za.ac.cput.service.ParkingSpaceService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ParkingSpaceServiceImpl implements ParkingSpaceService {
@@ -54,4 +56,19 @@ public class ParkingSpaceServiceImpl implements ParkingSpaceService {
     public List<ParkingSpace> findAll(){
         return this.repository.findAll();
     }
+
+    @Override
+    public ParkingSpace bookEmptySpaceIfEmpty(String id){
+        ParkingSpace ps = this.read(id);
+        ParkingSpace update = null;
+        if(ps.getIsEmpty() == true) {
+            update = new ParkingSpace.Builder().copy(ps).setIsEmpty(false).build();
+            this.repository.save(update);
+        }else{
+            System.out.println("This space is booked.");
+        }
+        return update;
+    }
+
+
 }

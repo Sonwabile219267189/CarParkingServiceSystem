@@ -48,7 +48,7 @@ public class ParkingSpace implements Serializable {
                 ", parkingSpaceNumber='" + parkingSpaceNumber + '\'' +
                 ", parkingLotID='" + parkingLotID + '\'' +
                 ", isEmpty=" + isEmpty +
-                '}';
+                '}' + '\n';
     }
 
     //builder Section

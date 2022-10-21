@@ -12,6 +12,9 @@ import za.ac.cput.util.Helper;
 public class ParkingSpaceFactory {
     public static ParkingSpace build( String parkingSpaceNumber, String parkingLotID, boolean isEmpty){
         String parkingSpaceID = Helper.generateUUID();
+        if (parkingLotID.equals("")){
+            throw new IllegalArgumentException("parkingLotID is empty");
+        }
         return new ParkingSpace.Builder()
                 .setParkingSpaceID(parkingSpaceID)
                 .setParkingSpaceNumber(parkingSpaceNumber)

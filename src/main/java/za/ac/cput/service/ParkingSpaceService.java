@@ -12,4 +12,6 @@ import java.util.List;
 
 public interface ParkingSpaceService extends IService<ParkingSpace, String>{
     public List<ParkingSpace> findAll();
+
+    public ParkingSpace bookEmptySpaceIfEmpty(String s);
 }

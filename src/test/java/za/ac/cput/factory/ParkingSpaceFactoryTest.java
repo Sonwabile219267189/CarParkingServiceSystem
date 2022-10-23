@@ -33,4 +33,12 @@ class ParkingSpaceFactoryTest {
 
     }
 
+    @Test
+    public void testNotCreateWithoutParkinglotID(){
+        ParkingLot parkingLot = ParkingLotFactory.build("District 6","1");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> ParkingSpaceFactory.build("4","", true));
+
+        System.out.println(exception.getMessage());
+    }
+
 }

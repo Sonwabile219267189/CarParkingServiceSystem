@@ -17,7 +17,7 @@ import za.ac.cput.service.impl.VehicleServiceImpl;
 import java.util.List;
 
 @RestController
-@RequestMapping("/vehicle/")
+@RequestMapping("carparkingservice/vehicle")
 public class VehicleController {
 
 
@@ -32,14 +32,14 @@ public class VehicleController {
 
     // CRUD
     //C-> Create
-    @PostMapping("create")
+    @PostMapping("/create")
     public Vehicle create(@RequestBody Vehicle vehicle){
         Vehicle newVehicle= VehicleFactory.createVehicle(vehicle.getVehicleNumberPlate(),vehicle.getUserID(), vehicle.getVehicleModel(), vehicle.getVehicleColour());
         return vehicleService.create(newVehicle);
     }
 
     //R-> Read
-    @GetMapping("read/{numberPlate}")
+    @GetMapping("/read/{id}")
     public Vehicle read(@PathVariable String vehicleNumberPlate){
         return vehicleService.read(vehicleNumberPlate);
     }
@@ -50,7 +50,7 @@ public class VehicleController {
         return vehicleService.update(vehicle);
     }
 
-    @DeleteMapping("/delete/{numberPlate}")
+    @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable String vehicleNumberPlate){
         return vehicleService.delete(vehicleNumberPlate);
     }
@@ -66,6 +66,7 @@ public class VehicleController {
     public ResponseEntity<List<Vehicle>> getVehiclesGivenUserId(@PathVariable String userID){
         List<Vehicle> vehicles=this.vehicleService.findVehiclesGivenUserId(userID);
         return ResponseEntity.ok(vehicles);
+        //return vehicleService.findVehicleGivenUserId(userId);
     }
 
 

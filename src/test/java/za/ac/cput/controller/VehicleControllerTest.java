@@ -45,14 +45,14 @@ class VehicleControllerTest {
 
         this.vehicle= VehicleFactory.createVehicle("CF510156", user.getUserID(), "Toyota Hilux, truck","Nebula blue");
 
-        this.baseUrl="http://localhost:" + this.port+ "/vehicle/";
+        this.baseUrl="http://localhost:" + this.port+ "carparkingservice/vehicle";
     }
 
 
     @Test
     @Order(1)
     void create(){
-        String url=baseUrl + "create";
+        String url=baseUrl + "/create";
         System.out.println(url);
         ResponseEntity<Vehicle> response = this.restTemplate
                 .postForEntity(url, this.vehicle, Vehicle.class);
@@ -66,7 +66,7 @@ class VehicleControllerTest {
     @Test
     @Order(2)
     void read(){
-        String url=baseUrl+"read/" + this.vehicle.getVehicleNumberPlate();
+        String url=baseUrl+"/read/" + this.vehicle.getVehicleNumberPlate();
         System.out.println("URL: "+ url);
         System.out.println(vehicle);
 

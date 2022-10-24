@@ -36,7 +36,7 @@ public class ReservationStatusControllerTest {
 
     private ReservationStatus reservationStatus = ReservationStatusFactory.build("Y253",
                     "Need payment");
-    private final String baseUrl = "http://localhost:" + this.port + "/cput/reservation-tatus/";
+    private final String baseUrl = "http://localhost:" + this.port + "/carparkingservice/reservationStatus/";
 
     @Test
     void create(){
@@ -53,7 +53,7 @@ public class ReservationStatusControllerTest {
 
     @Test
     void read(){
-        String url = baseUrl + "read/";
+        String url = baseUrl + "read";
         System.out.println(url);
         ResponseEntity<ReservationStatus> response = this.restTemplate.getForEntity(url,ReservationStatus.class);
         System.out.println(response);
@@ -64,7 +64,7 @@ public class ReservationStatusControllerTest {
 
     @Test
     void update(){
-        String url = baseUrl +"update/";
+        String url = baseUrl +"update";
         System.out.println(url);
         ResponseEntity<ReservationStatus> response = this.restTemplate.postForEntity(url,this.reservationStatus,
                 ReservationStatus.class);

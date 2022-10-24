@@ -14,7 +14,7 @@ import za.ac.cput.service.impl.ReservationStatusServiceImpl;
 import java.util.List;
 
 @RestController
-@RequestMapping("cput/reservation-status/")
+@RequestMapping("carparkingservice/reservationStatus/")
 public class ReservationStatusController {
     private final ReservationStatusServiceImpl reservationStatusService;
 

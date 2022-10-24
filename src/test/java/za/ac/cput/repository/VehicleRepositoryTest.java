@@ -47,10 +47,8 @@ import static org.junit.jupiter.api.Assertions.*;
     void c_read() {
         Vehicle saved=repository.save(vehicle);
         Optional<Vehicle> read= repository.findById(saved.getVehicleNumberPlate());
-        assertAll(
-                ()-> assertTrue(read.isPresent()),
-                ()->assertSame(saved, read.get())
-        );
+        assertNotNull(saved);
+        assertEquals(saved.getVehicleNumberPlate(),vehicle.getVehicleNumberPlate());
         System.out.println("read "+'\n'+read.get());
     }
 

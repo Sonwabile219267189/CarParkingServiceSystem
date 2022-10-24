@@ -40,7 +40,7 @@ public class RoleControllerTest {
     void setUp(){
         this.role= RoleFactory.createRole("Student");
 
-        this.baseUrl="http://localhost:" + this.port+ "/role/";
+        this.baseUrl="http://localhost:" + this.port+ "carparkingservice/role";
     }
 
     //CRUD Testing
@@ -48,7 +48,7 @@ public class RoleControllerTest {
     @Test
     //@Disabled
     void a_create() {
-        String url=baseUrl +"create";
+        String url=baseUrl +"/create";
         System.out.println(url);
         ResponseEntity<Role> response = this.restTemplate
                 .postForEntity(url, this.role, Role.class);
@@ -63,7 +63,7 @@ public class RoleControllerTest {
     // R-> Read
     @Test
     void b_read() {
-        String url=baseUrl + "read/" + this.role.getRoleId();
+        String url=baseUrl + "/read/" + this.role.getRoleId();
         System.out.println("URL: "+ url);
        // System.out.println(role);//
         ResponseEntity<Role> response= this.restTemplate.postForEntity(url, this.role, Role.class);

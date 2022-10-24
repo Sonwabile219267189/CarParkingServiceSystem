@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/role")
+@RequestMapping("carparkingservice/role")
 public class RoleController {
 
     private RoleServiceImpl roleService;

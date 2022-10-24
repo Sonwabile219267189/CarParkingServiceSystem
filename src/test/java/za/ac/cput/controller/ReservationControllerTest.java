@@ -41,7 +41,7 @@ public class ReservationControllerTest {
 
     @Test
     void create(){
-        String url = baseUrl +"/create";
+        String url = baseUrl +"create";
         System.out.println(url);
         ResponseEntity<Reservation> response = this.restTemplate.postForEntity(url,this.reservation,
                 Reservation.class);
@@ -54,7 +54,7 @@ public class ReservationControllerTest {
 
     @Test
     void read(){
-        String url = baseUrl + "/read";
+        String url = baseUrl + "read";
         System.out.println(url);
         ResponseEntity<Reservation> response = this.restTemplate.getForEntity(url,Reservation.class);
         System.out.println(response);
@@ -65,7 +65,7 @@ public class ReservationControllerTest {
 
     @Test
     void update(){
-        String url = baseUrl +"/update";
+        String url = baseUrl +"update";
         System.out.println(url);
         ResponseEntity<Reservation> response = this.restTemplate.postForEntity(url,this.reservation,
                 Reservation.class);
@@ -78,13 +78,13 @@ public class ReservationControllerTest {
 
     @Test
     void delete(){
-        String url = baseUrl + "/delete/" +this.reservation.getReservationID();
+        String url = baseUrl + "delete/" +this.reservation.getReservationID();
         this.restTemplate.delete(url);
     }
 
     @Test
     void findAll(){
-        String url = baseUrl + "/all";
+        String url = baseUrl + "all";
         System.out.println(url);
         ResponseEntity<Reservation[]> response = this.restTemplate.getForEntity(url,Reservation[].class);
         System.out.println(Arrays.asList(response.getBody()));

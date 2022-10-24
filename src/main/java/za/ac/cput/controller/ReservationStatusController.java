@@ -22,13 +22,13 @@ public class ReservationStatusController {
         this.reservationStatusService = reservationStatusService;
     }
 
-    @PostMapping("/create")
+    @PostMapping("create")
     public ResponseEntity<ReservationStatus> create(ReservationStatus reservationStatus){
         ReservationStatus create = reservationStatusService.create(reservationStatus);
         return ResponseEntity.ok(create);
     }
 
-    @GetMapping("/read")
+    @GetMapping("read")
     public ResponseEntity<ReservationStatus> read(String reservationStatus){
         ReservationStatus reservationStatus1 = this.reservationStatusService.read(reservationStatus);
         return ResponseEntity.ok(reservationStatus1);
@@ -40,13 +40,13 @@ public class ReservationStatusController {
         return ResponseEntity.ok(update);
     }
 
-    @DeleteMapping("/delete/{reservationStatusID}")
+    @DeleteMapping("delete/{reservationStatusID}")
     public ResponseEntity<Boolean> delete(@PathVariable String reservationStatusID){
         this.reservationStatusService.delete(reservationStatusID);
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/all")
+    @PostMapping("all")
     public ResponseEntity<List<ReservationStatus>> findAll(){
         List<ReservationStatus> reservationStatusList = this.reservationStatusService.findAll();
         return ResponseEntity.ok(reservationStatusList);

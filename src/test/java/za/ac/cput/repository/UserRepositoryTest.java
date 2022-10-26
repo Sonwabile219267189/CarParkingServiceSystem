@@ -56,7 +56,6 @@ public class UserRepositoryTest {
         assertEquals(updateUser.getUserID(), user0.getUserID());
         System.out.println("Updated User: " + updateUser);
     }
-
     @Order(5)
     @Test
     void deleteTest() {

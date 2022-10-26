@@ -11,7 +11,6 @@ import za.ac.cput.factory.UserFactory;
 import za.ac.cput.service.impl.UserServiceImpl;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("carparkingservice/user")
 @Slf4j
@@ -51,15 +50,13 @@ public class UserController {
         User update = service.update(user);
         return ResponseEntity.ok(update);
     }
-
-    //delete
+    ///delete
     @DeleteMapping("/delete/{s}")
     public ResponseEntity<Boolean> delete(@PathVariable String s){
         log.info("Delete request: {}", s);
         boolean u = service.delete(s);
         return ResponseEntity.noContent().build();
     }
-
     //getAll
     @GetMapping("/getAll")
     public ResponseEntity<List<User>> getAll(){

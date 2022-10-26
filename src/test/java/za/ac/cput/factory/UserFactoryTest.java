@@ -14,27 +14,28 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserFactoryTest {
     @Test
     void testCreateUser0() {
-               User user0 = UserFactory.build("Ludwe","Kona", "0815678910",
-                "192 Voortrekker Parow","ludwew@gmail.com");
+               User user0 = UserFactory.build("Ludwe","Kona", " Voortrekker Parow",
+                "0815678910192","ludwew@gmail.com");
         assertNotNull(user0);
         System.out.println(user0.toString());
     }
 
-    User user0 = UserFactory.build("Ludwe","Kona", "0815678910",
-            "192 Voortrekker Parow","ludwew@gmail.com");
+    User user0 = UserFactory.build("Ludwe","Kona", "192 Voortrekker Parow",
+            "0815678910","ludwew@gmail.com");
 
-    User user1 = UserFactory.build("Fudwe","Kona", "0815678910",
-            "192 Voortrekker Parow","fudwew@gmail.com");
+    User user1 = UserFactory.build("Fudwe","Kona", "192 Voortrekker Parow",
+            "0815678910","fudwew@gmail.com");
 
-    // This method will fail since the object created above is not the same
+    // This method will pass since the object created above is not the same
     @Test
     void testIdentity(){
         assertNotSame(user0, user1);
         System.out.println(user0);
         System.out.println(user1);
+        System.out.println("objects are not the same");
     }
 
-    //This test fails
+   // This test fails
     @Test
     public void failTest(){
         try{

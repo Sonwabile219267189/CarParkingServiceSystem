@@ -57,7 +57,7 @@ public class UserRepositoryTest {
         System.out.println("Updated User: " + updateUser);
     }
 
-    @Order(4)
+    @Order(5)
     @Test
     void deleteTest() {
         User saveUser = repository.save(user0);
@@ -68,11 +68,11 @@ public class UserRepositoryTest {
         System.out.println("User is deleted");
     }
 
-    @Order(5)
+    @Order(4)
     @Test
     void getAll() {
 
-        //User saveUser = repository.save(user0);
+        User saveUser = repository.save(user0);
         System.out.println("Users in the database");
         System.out.println(repository.findAll());
     }

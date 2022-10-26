@@ -44,20 +44,20 @@ public class UserController {
         return ResponseEntity.ok(read);
     }
 
-    //delete
-    @DeleteMapping("/delete/{s}")
-    public ResponseEntity<Boolean> delete(@PathVariable String s){
-        log.info("Delete request: {}", s);
-        boolean u = service.delete(s);
-        return ResponseEntity.noContent().build();
-    }
-
     //Update
     @PostMapping("update")
     public ResponseEntity<User> update(@RequestBody User user){
         log.info("Update request: {}", user);
         User update = service.update(user);
         return ResponseEntity.ok(update);
+    }
+
+    //delete
+    @DeleteMapping("/delete/{s}")
+    public ResponseEntity<Boolean> delete(@PathVariable String s){
+        log.info("Delete request: {}", s);
+        boolean u = service.delete(s);
+        return ResponseEntity.noContent().build();
     }
 
     //getAll

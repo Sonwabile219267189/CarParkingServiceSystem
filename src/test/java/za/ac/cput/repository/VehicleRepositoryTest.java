@@ -47,10 +47,8 @@ import static org.junit.jupiter.api.Assertions.*;
     void c_read() {
         Vehicle saved=repository.save(vehicle);
         Optional<Vehicle> read= repository.findById(saved.getVehicleNumberPlate());
-        assertAll(
-                ()-> assertTrue(read.isPresent()),
-                ()->assertSame(saved, read.get())
-        );
+        assertNotNull(saved);
+        assertEquals(saved.getVehicleNumberPlate(),vehicle.getVehicleNumberPlate());
         System.out.println("read "+'\n'+read.get());
     }
 
@@ -74,52 +72,4 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
 
-////    // CRUD
-////    // C->Create test
-////    @Test
-////    void a_create() {
-////        Vehicle created = repository.create(vehicle);
-////        assertNotNull(created);
-////        assertEquals(created.getVehicleNumberPlate(),vehicle.getVehicleNumberPlate());
-////        System.out.println("Created: "+ created);
-////
-////    }
-////
-////    // CRUD
-////// R->Read test
-////    @Test
-////    void b_read() {
-////        Vehicle read= repository.read(vehicle.getVehicleNumberPlate());
-////        assertNotNull(read);
-////        assertEquals(read.getVehicleNumberPlate(),vehicle.getVehicleNumberPlate());
-////        System.out.println("Read: "+ read);
-////    }
-//
-////    // CRUD
-////// U->Update test
-////
-//////    @Test
-//////    void c_update() {
-//////        Vehicle secondVehicle =new Vehicle.Builder().copy(vehicle).setVehicleNumberPlate("CA555246").setVehicleModel("Toyota hilux,Truck").setVehicleColour("Nebula Blue").build();
-//////       assertNotNull(repository.update(secondVehicle));
-//////        System.out.println("Update: "+ secondVehicle);
-//////    }
-////
-////    // CRUD
-////// D->Delete test
-////    @Test
-////    void e_delete() {
-////        boolean deleted = repository.delete(vehicle.getVehicleNumberPlate());
-////        assertTrue(deleted);
-////        System.out.println("Delete: "+ true);
-////
-////    }
-////
-////    // getAll method test
-////    @Test
-////    void d_getAll() {
-////        System.out.print("display all vehicles: ");
-////        System.out.println(repository.getAll());
-////    }
-//
 }

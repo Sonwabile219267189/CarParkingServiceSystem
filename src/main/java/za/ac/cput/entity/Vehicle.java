@@ -19,7 +19,7 @@ public class Vehicle implements Serializable {
     private String vehicleColour;
 
     //
-    public Vehicle(){
+    protected Vehicle(){
     }
 
 

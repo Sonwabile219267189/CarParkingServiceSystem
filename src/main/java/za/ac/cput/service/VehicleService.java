@@ -11,6 +11,7 @@ import za.ac.cput.entity.Vehicle;
 import java.util.List;
 
 public interface VehicleService extends IService<Vehicle,String>{
-    public List<Vehicle> getAll();
+    List<Vehicle> getAll();
+    List<Vehicle> findVehiclesGivenUserId(String userID);
 
 }

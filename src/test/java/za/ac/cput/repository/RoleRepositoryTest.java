@@ -43,10 +43,8 @@ public class RoleRepositoryTest{
     void c_read() {
         Role saved=repository.save(role);
         Optional<Role> read= repository.findById(saved.getRoleId());
-        assertAll(
-                ()-> assertTrue(read.isPresent()),
-                ()->assertSame(saved, read.get())
-        );
+        assertNotNull(saved);
+        assertEquals(saved.getRoleId(),role.getRoleId());
         System.out.println("read "+'\n'+read.get());
     }
 

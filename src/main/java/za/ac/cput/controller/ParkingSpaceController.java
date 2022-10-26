@@ -69,4 +69,11 @@ public class ParkingSpaceController {
         log.info("GetAllRequests: {}", parkingSpaces);
         return ResponseEntity.ok(parkingSpaces);
     }
+
+    @PutMapping("/bookSpaceIfEmpty/{id}")
+    public ResponseEntity<ParkingSpace> bookEmptySpaceIfEmpty(@PathVariable String id){
+        ParkingSpace bookSpace = service.bookEmptySpaceIfEmpty(id);
+        log.info("BookEmptySpaceRequest: {}" ,bookSpace);
+        return ResponseEntity.ok(bookSpace);
+    }
 }

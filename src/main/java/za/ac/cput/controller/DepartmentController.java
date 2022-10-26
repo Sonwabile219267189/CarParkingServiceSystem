@@ -7,7 +7,7 @@ import za.ac.cput.factory.DepartmentFactory;
 import za.ac.cput.service.DepartmentService;
 
 @RestController
-@RequestMapping("/department")
+@RequestMapping("carparkingservice/department")
 public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;

@@ -6,9 +6,11 @@ import za.ac.cput.entity.Admin;
 import za.ac.cput.factory.AdminFactory;
 import za.ac.cput.service.impl.AdminServiceImpl;
 
+import java.util.Set;
+
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("carparkingservice/admin")
 public class AdminController {
     @Autowired
     private AdminServiceImpl adminService;
@@ -29,13 +31,18 @@ public class AdminController {
         return adminService.update(admin);
     }
 
-    @PostMapping
-    public String delete(@RequestBody Admin admin){
+    @DeleteMapping("{adminId}")
+    public String delete(@PathVariable Admin admin){
         if(adminService.delete(admin.getAdminId()))
             return "Admin deleted successfully";
 
         else
             return "Admin could not be deleted";
+
+    }
+    @GetMapping("/getAll")
+    public Set<Admin> getAll(){
+        return (Set<Admin>) adminService.findAll();
 
     }
 }

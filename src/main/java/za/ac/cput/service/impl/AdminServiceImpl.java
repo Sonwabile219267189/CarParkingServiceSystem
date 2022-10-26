@@ -6,31 +6,58 @@
 
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Admin;
+import za.ac.cput.repository.IAdminRepository;
 import za.ac.cput.service.AdminService;
+
+import java.util.List;
+
 @Service
 public class AdminServiceImpl implements AdminService{
-          @Override
-          public Admin create(Admin admin) {
-              return null;
-          }
+    @Autowired
+    private IAdminRepository repository;
 
-          @Override
-          public Admin read(String a) {
-              return null;
-          }
+    public AdminServiceImpl(IAdminRepository repository){
+        this.repository = repository;
+    }
 
-          @Override
-          public Admin update(Admin admin) {
-              return null;
-          }
+    @Override
+    public Admin create(Admin admin) {
+        return this.repository.save(admin);
+    }
 
-          @Override
-          public boolean delete(String a) {
-              return false;
-          }
-      }
+    @Override
+    public Admin read(String admin) {
+        return this.repository.findById(admin).orElse(null);
+
+    }
+
+    @Override
+    public Admin update(Admin admin) {
+
+        if(this.repository.existsById(admin.getAdminId())){
+            return this.repository.save(admin);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(String adminId) {
+        if(this.repository.existsById(adminId)) {
+            this.repository.deleteById(adminId);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public List<Admin> findAll(){
+        return this.repository.findAll();
+    }
+}
+
 
 
 

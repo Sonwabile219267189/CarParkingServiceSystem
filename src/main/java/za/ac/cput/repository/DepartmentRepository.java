@@ -3,9 +3,9 @@
    DepartmentRepository
    Date: 08April2022
  */
-package za.ac.cput.repository;
+/*package za.ac.cput.repository;
 
-/*import za.ac.cput.entity.Department;
+import za.ac.cput.entity.Department;
 import java.util.HashSet;
 import java.util.Set;
 
